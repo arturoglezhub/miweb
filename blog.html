@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Arturo González García</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Mono:wght@300;400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23e63425'/><text x='16' y='23' font-family='serif' font-size='20' font-weight='700' text-anchor='middle' fill='white'>A</text></svg>">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --white: #f4f2ed;
+  --off: #eceae3;
+  --border: #d0cdc4;
+  --text: #16150f;
+  --mid: #4a4840;
+  --dim: #9a9488;
+  --red: #e63425;
+  --red-d: #c02a1e;
+  --black: #111110;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--white); color: var(--text); font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; line-height: 1.6; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 0.9rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+  background: rgba(244,242,237,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-brand { display: flex; flex-direction: column; gap: 0.15rem; text-decoration: none; }
+.nav-name { font-size: 0.9rem; font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
+.nav-sub { font-family: 'DM Mono', monospace; font-size: 0.52rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); }
+.nav-right { display: flex; align-items: center; gap: 1.5rem; }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--red); }
+.nav-cta { background: var(--red); color: #fff !important; padding: 0.5rem 1rem; font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+.nav-cta:hover { background: var(--red-d) !important; }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s ease; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-mobile-menu { display: none; position: fixed; top: 60px; left: 0; right: 0; background: rgba(244,242,237,0.98); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 1.5rem; z-index: 190; flex-direction: column; gap: 0; }
+.nav-mobile-menu.open { display: flex; }
+.nav-mobile-menu li { list-style: none; border-bottom: 1px solid var(--border); }
+.nav-mobile-menu li:last-child { border-bottom: none; }
+.nav-mobile-menu a { display: block; padding: 0.9rem 0; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+.nav-mobile-menu a:hover { color: var(--red); }
+
+/* ── BLOG HEADER ── */
+.blog-header {
+  padding: 9rem 3rem 5rem;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: end;
+}
+.blog-label { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.7rem; }
+.blog-label::before { content: ''; width: 1.5rem; height: 1px; background: var(--red); }
+.blog-header h1 { font-size: clamp(3rem, 6vw, 6rem); font-weight: 700; line-height: 0.92; letter-spacing: -0.03em; color: var(--text); }
+.blog-header h1 span { color: var(--red); }
+.blog-header-right { }
+.blog-desc { font-size: 0.95rem; line-height: 1.8; color: var(--mid); font-weight: 300; margin-bottom: 2rem; }
+.blog-topics { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.blog-topic { font-family: 'DM Mono', monospace; font-size: 0.54rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); border: 1px solid var(--border); padding: 0.35rem 0.75rem; cursor: pointer; transition: all 0.2s; }
+.blog-topic:hover, .blog-topic.active { border-color: var(--red); color: var(--red); }
+
+/* ── POST LIST ── */
+.post-list { padding: 0 3rem 6rem; }
+
+.post-card {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+.post-card:hover { background: var(--off); }
+
+.post-number {
+  padding: 3rem 2rem 3rem 0;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding-right: 2rem;
+}
+
+.post-body { padding: 3rem 0 3rem 3rem; }
+
+.post-meta { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1rem; }
+.post-cat { font-family: 'DM Mono', monospace; font-size: 0.54rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); }
+.post-date { font-family: 'DM Mono', monospace; font-size: 0.54rem; letter-spacing: 0.1em; color: var(--dim); }
+.post-read { font-family: 'DM Mono', monospace; font-size: 0.54rem; letter-spacing: 0.1em; color: var(--dim); }
+.post-dot { width: 3px; height: 3px; background: var(--border); border-radius: 50%; }
+
+.post-title { font-size: clamp(1.3rem, 2.5vw, 1.9rem); font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; color: var(--text); margin-bottom: 0.75rem; transition: color 0.2s; }
+.post-card:hover .post-title { color: var(--red); }
+
+.post-excerpt { font-size: 0.9rem; line-height: 1.75; color: var(--mid); font-weight: 300; max-width: 680px; }
+
+.post-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 1.5rem; }
+.post-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.post-tag { font-family: 'DM Mono', monospace; font-size: 0.48rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); border: 1px solid var(--border); padding: 0.2rem 0.5rem; }
+.post-arrow { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; color: var(--dim); transition: all 0.2s; }
+.post-card:hover .post-arrow { color: var(--red); transform: translateX(4px); }
+
+/* ── SINGLE POST ── */
+.single-post { display: none; }
+.single-post.active { display: block; }
+
+.post-hero {
+  padding: 8rem 3rem 4rem;
+  border-bottom: 1px solid var(--border);
+  max-width: 800px;
+}
+.post-hero-cat { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.7rem; }
+.post-hero-cat::before { content: ''; width: 1.5rem; height: 1px; background: var(--red); }
+.post-hero h1 { font-size: clamp(2rem, 4.5vw, 4rem); font-weight: 700; line-height: 1.0; letter-spacing: -0.03em; color: var(--text); margin-bottom: 1.5rem; }
+.post-hero-meta { display: flex; align-items: center; gap: 1.5rem; }
+.post-hero-date { font-family: 'DM Mono', monospace; font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
+.post-hero-read { font-family: 'DM Mono', monospace; font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
+.post-hero-dot { width: 3px; height: 3px; background: var(--border); border-radius: 50%; }
+
+/* Image placeholder */
+.img-placeholder {
+  width: 100%;
+  background: var(--off);
+  border: 1px dashed var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 3rem;
+  margin: 2.5rem 0;
+}
+.img-placeholder-id { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); }
+.img-placeholder-desc { font-family: 'DM Mono', monospace; font-size: 0.56rem; letter-spacing: 0.1em; color: var(--dim); text-align: center; }
+.img-placeholder-icon { font-size: 2rem; opacity: 0.3; }
+
+/* Post content */
+.post-content {
+  padding: 4rem 3rem 6rem;
+  max-width: 760px;
+}
+.post-content p { font-family: 'Lora', serif; font-size: 1.05rem; line-height: 1.85; color: var(--mid); margin-bottom: 1.75rem; font-weight: 400; }
+.post-content p strong { font-family: 'Space Grotesk', sans-serif; font-weight: 600; color: var(--text); }
+.post-content h2 { font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; margin: 3rem 0 1rem; line-height: 1.2; }
+.post-content h3 { font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 600; color: var(--text); margin: 2rem 0 0.75rem; }
+.post-content ul, .post-content ol { padding-left: 1.5rem; margin-bottom: 1.75rem; }
+.post-content li { font-family: 'Lora', serif; font-size: 1.05rem; line-height: 1.85; color: var(--mid); margin-bottom: 0.5rem; }
+.post-content blockquote { border-left: 3px solid var(--red); padding: 1rem 1.5rem; margin: 2rem 0; background: var(--off); }
+.post-content blockquote p { font-style: italic; margin-bottom: 0; color: var(--text); }
+.post-content .highlight { background: var(--off); border: 1px solid var(--border); padding: 1.5rem 2rem; margin: 2rem 0; }
+.post-content .highlight p { font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; margin-bottom: 0; color: var(--text); }
+.post-content .mono-block { background: var(--black); padding: 1.5rem 2rem; margin: 2rem 0; }
+.post-content .mono-block p { font-family: 'DM Mono', monospace; font-size: 0.82rem; color: #f4f2ed; margin-bottom: 0.5rem; line-height: 1.7; }
+.post-content .mono-block p:last-child { margin-bottom: 0; }
+.post-content hr { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+
+.post-nav {
+  padding: 2rem 3rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.post-nav-btn { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); text-decoration: none; transition: color 0.2s; cursor: pointer; background: none; border: none; }
+.post-nav-btn:hover { color: var(--red); }
+.back-to-blog { display: flex; align-items: center; gap: 0.5rem; }
+.back-to-blog::before { content: '←'; }
+
+/* ── FADE ── */
+.fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  nav { padding: 0.9rem 1.25rem; transition: transform 0.3s ease; }
+  nav.nav-hidden { transform: translateY(-100%); }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .blog-header { grid-template-columns: 1fr; padding: 7rem 1.25rem 3rem; gap: 2rem; }
+  .post-list { padding: 0 1.25rem 4rem; }
+  .post-card { grid-template-columns: 1fr; }
+  .post-number { display: none; }
+  .post-body { padding: 2rem 0; }
+  .post-hero { padding: 6rem 1.25rem 3rem; }
+  .post-content { padding: 2.5rem 1.25rem 4rem; }
+  .post-content p, .post-content li { font-size: 0.98rem; }
+  .post-nav {
+    padding: 1.5rem 1.25rem;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+    border-top: 1px solid var(--border);
+  }
+  .post-nav-btn {
+    display: block;
+    width: 100%;
+    padding: 0.85rem 1rem;
+    background: var(--off);
+    border: 1px solid var(--border) !important;
+    text-align: left;
+    font-size: 0.58rem;
+  }
+  .post-nav-btn:hover { background: var(--white); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-brand">
+    <span class="nav-name">Arturo González</span>
+    <span class="nav-sub">Marketing &amp; AI Systems Builder · Portfolio</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#intel">Agents</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <a href="index.html#contact" class="nav-cta">Let's Talk</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<ul class="nav-mobile-menu" id="mobile-menu">
+  <li><a href="index.html#about" class="mobile-link">About</a></li>
+  <li><a href="index.html#work" class="mobile-link">Work</a></li>
+  <li><a href="index.html#intel" class="mobile-link">Agents</a></li>
+  <li><a href="index.html#services" class="mobile-link">Services</a></li>
+  <li><a href="blog.html" class="mobile-link">Blog</a></li>
+  <li><a href="index.html#contact" class="mobile-link">Contact</a></li>
+</ul>
+
+<!-- BLOG LIST VIEW -->
+<div id="blog-list">
+
+  <!-- HEADER -->
+  <div class="blog-header fade-up">
+    <div>
+      <div class="blog-label">Blog</div>
+      <h1>Notes from<br>the <span>field.</span></h1>
+    </div>
+    <div class="blog-header-right">
+      <p class="blog-desc">I write about building AI agents, market intelligence, and the gap between what AI can do and how most people actually use it. Honest notes — not tutorials.</p>
+      <div class="blog-topics">
+        <span class="blog-topic active">All</span>
+        <span class="blog-topic">AI Agents</span>
+        <span class="blog-topic">Intelligence</span>
+        <span class="blog-topic">Workflow</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST LIST -->
+  <div class="post-list">
+
+    <a class="post-card fade-up" data-category="ai-agents" onclick="openPost('post-001'); return false;" href="#">
+      <div class="post-number">001</div>
+      <div class="post-body">
+        <div class="post-meta">
+          <span class="post-cat">AI Agents</span>
+          <span class="post-dot"></span>
+          <span class="post-date">May 2025</span>
+          <span class="post-dot"></span>
+          <span class="post-read">6 min read</span>
+        </div>
+        <div class="post-title">I built an analytical agent. Here's what actually happened.</div>
+        <p class="post-excerpt">Not a chatbot. Not a prompt chain. An agent with a name, a framework, custom skills, and real data. This is the architecture I ended up with — and what it took to get there.</p>
+        <div class="post-footer">
+          <div class="post-tags">
+            <span class="post-tag">AI Agents</span>
+            <span class="post-tag">Architecture</span>
+            <span class="post-tag">Claude</span>
+          </div>
+          <span class="post-arrow">Read →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="post-card fade-up" data-category="workflow" onclick="openPost('post-002'); return false;" href="#">
+      <div class="post-number">002</div>
+      <div class="post-body">
+        <div class="post-meta">
+          <span class="post-cat">Workflow</span>
+          <span class="post-dot"></span>
+          <span class="post-date">May 2025</span>
+          <span class="post-dot"></span>
+          <span class="post-read">5 min read</span>
+        </div>
+        <div class="post-title">The token problem nobody talks about</div>
+        <p class="post-excerpt">I was using AI like the clock didn't cost anything. Then I started building autonomous agents — and everything changed. Here's the hybrid model I actually use now.</p>
+        <div class="post-footer">
+          <div class="post-tags">
+            <span class="post-tag">Workflow</span>
+            <span class="post-tag">Token Economy</span>
+            <span class="post-tag">Human-AI</span>
+          </div>
+          <span class="post-arrow">Read →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="post-card fade-up" data-category="workflow" onclick="openPost('post-003'); return false;" href="#">
+      <div class="post-number">003</div>
+      <div class="post-body">
+        <div class="post-meta">
+          <span class="post-cat">Workflow</span>
+          <span class="post-dot"></span>
+          <span class="post-date">May 2025</span>
+          <span class="post-dot"></span>
+          <span class="post-read">5 min read</span>
+        </div>
+        <div class="post-title">One afternoon, one Skill, zero instructions tomorrow</div>
+        <p class="post-excerpt">I kept writing the same instructions over and over. One afternoon I stopped — and documented the process as a Skill instead. The result was predictable output without the daily effort.</p>
+        <div class="post-footer">
+          <div class="post-tags">
+            <span class="post-tag">Skills</span>
+            <span class="post-tag">Automation</span>
+            <span class="post-tag">Claude</span>
+          </div>
+          <span class="post-arrow">Read →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="post-card fade-up" data-category="ai-agents" onclick="openPost('post-004'); return false;" href="#">
+      <div class="post-number">004</div>
+      <div class="post-body">
+        <div class="post-meta">
+          <span class="post-cat">AI Agents</span>
+          <span class="post-dot"></span>
+          <span class="post-date">Apr 2025</span>
+          <span class="post-dot"></span>
+          <span class="post-read">5 min read</span>
+        </div>
+        <div class="post-title">Project managers have an unfair advantage building AI agents</div>
+        <p class="post-excerpt">An agent is like a new hire with unlimited potential and zero context. The people who already know how to onboard someone — and ask the right questions before delegating — build better agents. Here's why.</p>
+        <div class="post-footer">
+          <div class="post-tags">
+            <span class="post-tag">AI Agents</span>
+            <span class="post-tag">Management</span>
+            <span class="post-tag">Design</span>
+          </div>
+          <span class="post-arrow">Read →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="post-card fade-up" data-category="intelligence" onclick="openPost('post-005'); return false;" href="#">
+      <div class="post-number">005</div>
+      <div class="post-body">
+        <div class="post-meta">
+          <span class="post-cat">Intelligence</span>
+          <span class="post-dot"></span>
+          <span class="post-date">May 2025</span>
+          <span class="post-dot"></span>
+          <span class="post-read">6 min read</span>
+        </div>
+        <div class="post-title">9,539 mining claims. I mapped them all.</div>
+        <p class="post-excerpt">Between January and April 2026, 9,539 new mining claims were filed on federal land in the western U.S. I didn't process them manually. Three patterns stood out — and one state nobody was watching changed everything.</p>
+        <div class="post-footer">
+          <div class="post-tags">
+            <span class="post-tag">Mining Intel</span>
+            <span class="post-tag">Data</span>
+            <span class="post-tag">BLM</span>
+          </div>
+          <span class="post-arrow">Read →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="post-card fade-up" data-category="ai-agents" onclick="openPost('post-006'); return false;" href="#">
+      <div class="post-number">006</div>
+      <div class="post-body">
+        <div class="post-meta">
+          <span class="post-cat">AI Agents</span>
+          <span class="post-dot"></span>
+          <span class="post-date">May 2025</span>
+          <span class="post-dot"></span>
+          <span class="post-read">7 min read</span>
+        </div>
+        <div class="post-title">Sara: a senior ICP agent built in under 3 hours</div>
+        <p class="post-excerpt">Most people burn through their Claude usage before the agent is even tested. I built a senior-level B2B SaaS ICP analyzer in under 3 hours using only 20% of my monthly limit. The secret was the orchestration — not the prompting.</p>
+        <div class="post-footer">
+          <div class="post-tags">
+            <span class="post-tag">AI Agents</span>
+            <span class="post-tag">ICP</span>
+            <span class="post-tag">LLM Council</span>
+          </div>
+          <span class="post-arrow">Read →</span>
+        </div>
+      </div>
+    </a>
+
+    <a class="post-card fade-up" data-category="workflow" onclick="openPost('post-007'); return false;" href="#">
+      <div class="post-number">007</div>
+      <div class="post-body">
+        <div class="post-meta">
+          <span class="post-cat">Workflow</span>
+          <span class="post-dot"></span>
+          <span class="post-date">May 2026</span>
+          <span class="post-dot"></span>
+          <span class="post-read">6 min read</span>
+        </div>
+        <div class="post-title">Technical specialists or AI strategists? The question agencies are getting wrong.</div>
+        <p class="post-excerpt">The hiring model that built digital agencies is breaking down. Platforms are automating the skills that made specialists valuable — and most agencies haven't updated the job description.</p>
+        <div class="post-footer">
+          <div class="post-tags">
+            <span class="post-tag">Workflow</span>
+            <span class="post-tag">E-commerce</span>
+            <span class="post-tag">Paid Media</span>
+          </div>
+          <span class="post-arrow">Read →</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════
+     SINGLE POST VIEWS
+════════════════════════════════════════ -->
+
+<!-- POST 001 -->
+<div class="single-post" id="post-001">
+  <div class="post-hero fade-up">
+    <div class="post-hero-cat">AI Agents</div>
+    <h1>I built an analytical agent. Here's what actually happened.</h1>
+    <div class="post-hero-meta">
+      <span class="post-hero-date">May 2025</span>
+      <span class="post-hero-dot"></span>
+      <span class="post-hero-read">6 min read</span>
+    </div>
+  </div>
+
+  <div class="post-content fade-up">
+
+    <!-- IMG-001-A: Architecture diagram showing Database → Agent → Skills → Result flow -->
+    <div class="img-placeholder" id="img-001-a">
+      <div class="img-placeholder-icon">◻</div>
+      <div class="img-placeholder-id">IMG-001-A</div>
+      <div class="img-placeholder-desc">Architecture diagram — Database → Agent → Skills → Analysis → Result</div>
+    </div>
+
+    <p>I didn't set out to build an agent. I set out to solve a problem — and the agent was what the problem required.</p>
+
+    <p>The difference matters. Most people who build AI agents start with the technology. They discover what's possible and work backwards to a use case. I did the opposite. I had a specific analytical problem — one that required processing large amounts of structured data, applying a consistent framework, and producing usable intelligence — and I kept asking what tool could actually do that reliably.</p>
+
+    <p>The answer wasn't a chatbot. It wasn't a prompt chain. It was an agent with a defined architecture.</p>
+
+    <h2>What the architecture looks like</h2>
+
+    <p>The system I ended up with has four components that work together in sequence:</p>
+
+    <div class="mono-block">
+      <p>Database → Agent → Skills → Analysis → Result</p>
+    </div>
+
+    <p><strong>The database is the starting point.</strong> Raw data that I upload directly — not web searches, not summaries, not anything the model can find on its own. This matters more than it sounds. An agent that works on its own data behaves completely differently from one that goes looking for information. The former is precise. The latter is unpredictable.</p>
+
+    <p><strong>The agent sits at the center.</strong> It has a defined analytical framework — a way of thinking about problems that I built over months of iteration. It knows what to look for. It knows what to discard. It knows when a signal requires deeper investigation and when it's noise.</p>
+
+    <p><strong>The Skills are its tools.</strong> Each one is an instruction set that teaches the agent how to execute a specific type of analysis: how to cross-reference databases, how to score and filter records against a custom framework, how to produce structured intelligence from raw data. The skills reference each other. They share logic. And they evolve — every investigation sharpens the filters and refines the scoring.</p>
+
+    <h2>What took the most time</h2>
+
+    <p>This took months to build. Not because the technology is hard — it isn't, not at the surface level. What took time was teaching the agent to reason well about a specific domain.</p>
+
+    <p>There's a gap between an agent that can process data and an agent that applies sound judgment. The first is a technical problem. The second requires patience, failed experiments, and constant calibration.</p>
+
+    <blockquote>
+      <p>I'm not a developer. I work in business development. But the architecture — skills, project knowledge, persistent memory — gave me the building blocks to create something that actually thinks about my problem.</p>
+    </blockquote>
+
+    <p>Most of the work was defining what good reasoning looks like for this specific domain. What counts as a signal. What's a false positive. When to escalate and when to filter out. None of that comes pre-built. You have to teach it — and the teaching happens through iteration, not through prompting.</p>
+
+    <h2>What I'd do differently</h2>
+
+    <p>I'd start with the exclusion list. Before I defined what the agent should look for, I should have defined what it should ignore. The exclusion logic — the rules that eliminate false positives — turned out to be more valuable than the detection logic. A precise filter is worth more than a sensitive detector.</p>
+
+    <p>I'd also map the full workflow before writing a single skill. The biggest mistakes came from building individual pieces without a clear picture of how they'd connect. Skills that worked in isolation created conflicts when they ran in sequence. The architecture needs to exist on paper before it exists in the system.</p>
+
+    <hr>
+
+    <p>If you're building something similar — an analytical system that works with real data, applies real logic, and produces consistent output — the question worth asking first isn't what the technology can do. It's what the problem actually requires. Start there, and the architecture follows.</p>
+
+  </div>
+  <div class="post-nav">
+    <button class="post-nav-btn back-to-blog" onclick="closePost()">Back to Blog</button>
+    <button class="post-nav-btn" onclick="openPost('post-002')">Next: The token problem nobody talks about →</button>
+  </div>
+</div>
+
+<!-- POST 002 -->
+<div class="single-post" id="post-002">
+  <div class="post-hero fade-up">
+    <div class="post-hero-cat">Workflow</div>
+    <h1>The token problem nobody talks about</h1>
+    <div class="post-hero-meta">
+      <span class="post-hero-date">May 2025</span>
+      <span class="post-hero-dot"></span>
+      <span class="post-hero-read">5 min read</span>
+    </div>
+  </div>
+
+  <div class="post-content fade-up">
+
+    <!-- IMG-002-A: Visual of human-AI hybrid workflow split -->
+    <div class="img-placeholder" id="img-002-a">
+      <div class="img-placeholder-icon">◻</div>
+      <div class="img-placeholder-id">IMG-002-A</div>
+      <div class="img-placeholder-desc">Diagram — Human tasks vs AI tasks split in hybrid workflow</div>
+    </div>
+
+    <p>For a long time, I used AI like the clock didn't cost anything. Message in, response out, correction, adjustment, another round. An entire afternoon to get to something that worked. It didn't matter — I was the one putting in the time, not the account.</p>
+
+    <p>That changed when I started building autonomous agents.</p>
+
+    <h2>The moment it broke</h2>
+
+    <p>The first time I ran an autonomous agent, I brought the same pattern I'd always used. The agent got halfway through the process — and the usage limit hit. No result. Tokens burned in the middle of the road, not at the destination.</p>
+
+    <p>That's when I started thinking differently.</p>
+
+    <p>The first thing I did was map my entire workflow and decide what I do and what the AI does. And here's the part nobody says out loud:</p>
+
+    <blockquote>
+      <p>Everything a human can do in a short amount of time, I do myself. I collect data, organize information, handle monotonous tasks that don't require complex reasoning. Not because I can't delegate them — but because that kind of work drains usage without generating proportional value.</p>
+    </blockquote>
+
+    <p>What I delegate to AI is the analysis of large amounts of information. The kind of work that would take me days — and that I probably wouldn't do with the same depth even if I tried.</p>
+
+    <h2>Why structure matters more than capability</h2>
+
+    <p>But without structure, the analysis comes out biased. That's where Skills come in — detailed instructions that tell the agent exactly how to execute each process, in what order, with what logic. Predictable results within a defined context. No improvising every time.</p>
+
+    <p>The shift was significant. From chatting for an entire afternoon to surgical prompts with refined Skills and human oversight at the key decision points.</p>
+
+    <div class="highlight">
+      <p>Automation is attractive. But automating without designing the process first is just burning tokens with style. The hybrid Human-AI model isn't accidental — it's the most efficient way to work with what you have.</p>
+    </div>
+
+    <!-- IMG-002-B: Token usage before vs after the hybrid model -->
+    <div class="img-placeholder" id="img-002-b">
+      <div class="img-placeholder-icon">◻</div>
+      <div class="img-placeholder-id">IMG-002-B</div>
+      <div class="img-placeholder-desc">Chart — Token consumption before vs after adopting hybrid model</div>
+    </div>
+
+    <h2>The practical split</h2>
+
+    <p>Here's how I actually divide the work now:</p>
+
+    <p><strong>I handle:</strong> raw data collection, file organization, anything that takes under 10 minutes manually, and all decision points where judgment matters.</p>
+
+    <p><strong>The agent handles:</strong> cross-referencing multiple data sources, applying scoring frameworks across hundreds of records, producing structured output from unstructured input, and any analysis that would take me days to do with the same rigor.</p>
+
+    <p>The boundary isn't fixed — it shifts as the agent gets better at specific tasks. But the principle stays: if a human can do it fast, a human should do it. Save the tokens for what the human can't.</p>
+
+    <hr>
+
+    <p>The most expensive mistake in AI workflows isn't a bad prompt. It's using a reasoning model for tasks that don't require reasoning. Map the work first. Then build the agent.</p>
+
+  </div>
+  <div class="post-nav">
+    <button class="post-nav-btn back-to-blog" onclick="closePost()">Back to Blog</button>
+    <button class="post-nav-btn" onclick="openPost('post-003')">Next: One afternoon, one Skill →</button>
+  </div>
+</div>
+
+<!-- POST 003 -->
+<div class="single-post" id="post-003">
+  <div class="post-hero fade-up">
+    <div class="post-hero-cat">Workflow</div>
+    <h1>One afternoon, one Skill, zero instructions tomorrow</h1>
+    <div class="post-hero-meta">
+      <span class="post-hero-date">May 2025</span>
+      <span class="post-hero-dot"></span>
+      <span class="post-hero-read">5 min read</span>
+    </div>
+  </div>
+
+  <div class="post-content fade-up">
+
+    <p>There's a task I run often: download the inventory report and analyze it. Always the same process. Always from scratch.</p>
+
+    <p>For a while I handled it from the chat. Attach the file, write the instructions by hand, wait for the result. It works. But it depended on me remembering to say exactly the same thing I said last time — with the same criteria, the same order, the same logic.</p>
+
+    <p>I didn't always do it the same way. And that inconsistency was costing me more than I realized.</p>
+
+    <h2>The shift</h2>
+
+    <p>One afternoon I did something different. Instead of writing the instructions again, I documented them as a Skill inside my Claude Project.</p>
+
+    <p>Step by step. Objective. Rules. Reasoning defined. I tested it until the output was exactly what I needed — not close, not roughly right, but exactly right. Then I stopped touching it.</p>
+
+    <p>Now the flow is: download the raw report — .xls or .csv, doesn't matter — upload it to the Project, and ask it to run the Skill. That's it.</p>
+
+    <!-- IMG-003-A: Before/after workflow comparison — chat instructions vs Skill execution -->
+    <div class="img-placeholder" id="img-003-a">
+      <div class="img-placeholder-icon">◻</div>
+      <div class="img-placeholder-id">IMG-003-A</div>
+      <div class="img-placeholder-desc">Before/after — manual chat instructions vs. Skill-based execution</div>
+    </div>
+
+    <h2>What actually changed</h2>
+
+    <p>What changed isn't visible at first glance. But the process no longer depends on my instructions for the day. Not on whether I'm focused. Not on whether I remember how I did it last week.</p>
+
+    <p>The result is predictable because the process is documented — not memorized. That's what feeds automation: documentation, not memory.</p>
+
+    <blockquote>
+      <p>A Skill can call another Skill. With isolated messages, that kind of consistent chaining is hard to achieve. With a Project structure, it becomes the default.</p>
+    </blockquote>
+
+    <p>This isn't sophisticated automation. It's not impressive from the outside. But it's the foundation of everything that scales — because a process you had to explain once is a process you never have to explain again.</p>
+
+    <h2>The compounding effect</h2>
+
+    <p>The real value of a documented Skill isn't the first time you run it. It's the tenth time. The twentieth. Every run where you don't have to reconstruct the logic, remember the edge cases, or correct a result that drifted because the instructions were slightly different.</p>
+
+    <p>Skills compound. The more you document, the more the system knows. The more the system knows, the less you have to explain. And the less you explain per task, the more tasks you can run in the same window.</p>
+
+    <div class="highlight">
+      <p>Document the process once. Run it without thinking forever. That's the actual return on investment — not the first result, but the elimination of all the setup that precedes it.</p>
+    </div>
+
+    <hr>
+
+    <p>If you're writing the same instructions more than twice, that's a Skill waiting to be built. One afternoon of documentation pays for itself the next time the report lands in your inbox.</p>
+
+  </div>
+  <div class="post-nav">
+    <button class="post-nav-btn back-to-blog" onclick="closePost()">Back to Blog</button>
+    <button class="post-nav-btn" onclick="openPost('post-004')">Next: Project managers & AI agents →</button>
+  </div>
+</div>
+
+<!-- POST 004 -->
+<div class="single-post" id="post-004">
+  <div class="post-hero fade-up">
+    <div class="post-hero-cat">AI Agents</div>
+    <h1>Project managers have an unfair advantage building AI agents</h1>
+    <div class="post-hero-meta">
+      <span class="post-hero-date">Apr 2025</span>
+      <span class="post-hero-dot"></span>
+      <span class="post-hero-read">5 min read</span>
+    </div>
+  </div>
+
+  <div class="post-content fade-up">
+
+    <p>An AI agent isn't software. It's a new collaborator with enormous potential and zero experience in what you specifically need.</p>
+
+    <p>No context. No judgment of its own yet. No institutional knowledge about your domain, your standards, or what "good" looks like in your workflow.</p>
+
+    <p>That description will sound familiar to anyone who has ever onboarded a new team member.</p>
+
+    <h2>The onboarding problem</h2>
+
+    <p>People who have managed projects and teams already know how to ask the right questions before delegating:</p>
+
+    <ul>
+      <li>What does this need to produce?</li>
+      <li>In what order?</li>
+      <li>How do I verify it was done correctly?</li>
+      <li>What happens when something goes wrong?</li>
+    </ul>
+
+    <p>Those aren't AI questions. They're management questions. And the people who ask them habitually build better agents — not because they understand the technology better, but because they understand delegation better.</p>
+
+    <!-- IMG-004-A: Parallel between new hire onboarding and agent setup process -->
+    <div class="img-placeholder" id="img-004-a">
+      <div class="img-placeholder-icon">◻</div>
+      <div class="img-placeholder-id">IMG-004-A</div>
+      <div class="img-placeholder-desc">Parallel diagram — new hire onboarding vs. agent setup process</div>
+    </div>
+
+    <h2>Why most agents fail</h2>
+
+    <p>People who don't have that practice build agents with high expectations from the first attempt. The agent fails or doesn't meet expectations. They conclude the tool doesn't work. The experiment ends.</p>
+
+    <p>It's not that the tool failed. It's that the process wasn't designed properly. The same thing happens with a new employee who wasn't onboarded correctly — except we blame the process, not the person. With AI, we blame the technology.</p>
+
+    <blockquote>
+      <p>At 95% accuracy per step, a 10-step workflow succeeds completely only 60% of the time. Few people calculate this before designing the agent — and that's why so many systems produce results that drift from what was intended.</p>
+    </blockquote>
+
+    <h2>What AI companies are actually doing</h2>
+
+    <p>AI applications are deliberately moving toward natural language. It's not accidental — the goal is to make these tools accessible to more people, not just developers.</p>
+
+    <p>What that means in practice is that the barrier to building useful AI systems is shifting from technical skill to process design skill. The people who will build the most effective agents aren't necessarily the best coders. They're the ones who know how to define a clear outcome, break it into verifiable steps, and create checkpoints that catch errors before they compound.</p>
+
+    <p>That's project management. And it's becoming a core skill for AI work.</p>
+
+    <div class="highlight">
+      <p>Planning, delegation, process management, adaptability — these are quietly becoming key skills for building AI agents. The organizations that see this earliest will have a structural advantage.</p>
+    </div>
+
+    <hr>
+
+    <p>If you've managed a team, you already have most of what it takes to build a well-functioning agent. The gap isn't technical. It's recognizing that the same discipline applies — and applying it deliberately from the start.</p>
+
+  </div>
+  <div class="post-nav">
+    <button class="post-nav-btn back-to-blog" onclick="closePost()">Back to Blog</button>
+    <button class="post-nav-btn" onclick="openPost('post-005')">Next: 9,539 mining claims →</button>
+  </div>
+</div>
+
+<!-- POST 005 -->
+<div class="single-post" id="post-005">
+  <div class="post-hero fade-up">
+    <div class="post-hero-cat">Intelligence</div>
+    <h1>9,539 mining claims. I mapped them all.</h1>
+    <div class="post-hero-meta">
+      <span class="post-hero-date">May 2025</span>
+      <span class="post-hero-dot"></span>
+      <span class="post-hero-read">6 min read</span>
+    </div>
+  </div>
+
+  <div class="post-content fade-up">
+
+    <p>Between January and April 2026, 9,539 new mining claims were filed on federal land in the western United States. I didn't process them manually. An agent did — and three patterns stood out clearly enough that I had to write about them.</p>
+
+    <!-- IMG-005-A: Animated heatmap of US mining claims Jan-Apr 2026 -->
+    <div class="img-placeholder" id="img-005-a">
+      <div class="img-placeholder-icon">◻</div>
+      <div class="img-placeholder-id">IMG-005-A</div>
+      <div class="img-placeholder-desc">Animated heatmap — US mining claims activity Jan–Apr 2026 by county</div>
+    </div>
+
+    <h2>Pattern one: Nevada is decelerating</h2>
+
+    <p>Nevada still dominates — 45% of all new claims filed nationwide landed here. That's not surprising. Nevada has been the center of U.S. mining activity for decades, and its established mineral corridors in Humboldt, Elko, and White Pine counties continue to attract volume.</p>
+
+    <p>What was surprising: the state is decelerating fast. Claims dropped 70% between January and March. The volume is there, but the momentum isn't. Nevada is a mature market being maintained, not expanded.</p>
+
+    <h2>Pattern two: Arizona is the quiet second act</h2>
+
+    <p>Cochise County alone absorbed over 700 new claims in the quarter — more than any other county in the country. That number didn't appear in any report I could find before running the analysis. It came from crossing the raw BLM filing data with county-level geolocation.</p>
+
+    <p>Arizona isn't being discussed the way Nevada is. That's usually when something interesting is happening.</p>
+
+    <h2>Pattern three: Colorado is the only state accelerating</h2>
+
+    <p>This is the one that changed the analysis. New claims in Colorado grew 462% from January to March, concentrated in Chaffee County. Not a gradual increase — an acceleration. The kind that suggests something specific is driving it, not general market activity.</p>
+
+    <!-- IMG-005-B: State-by-state comparison chart — claim growth rates Q1 2026 -->
+    <div class="img-placeholder" id="img-005-b">
+      <div class="img-placeholder-icon">◻</div>
+      <div class="img-placeholder-id">IMG-005-B</div>
+      <div class="img-placeholder-desc">Bar chart — claim growth rates by state Q1 2026. Colorado vs. Nevada vs. Arizona</div>
+    </div>
+
+    <p>What's driving the Colorado surge? The data doesn't answer that. But it raises the question clearly enough that the answer is worth finding.</p>
+
+    <h2>What the agent actually did</h2>
+
+    <p>The agent cross-referenced federal BLM filing records, detected geographic clustering patterns by county and week, and flagged which states showed unusual acceleration against baseline rates. No spreadsheet. No manual filtering. The system ran the analysis; I interpreted the output.</p>
+
+    <p>That's the division of labor that makes this kind of work possible at scale. The agent handles the volume. The human handles the judgment about what the patterns mean.</p>
+
+    <div class="highlight">
+      <p>Source: Bureau of Land Management — Mining Claims Case Actions (public record). This analysis is for informational purposes only and does not constitute investment advice or any recommendation regarding specific entities or securities.</p>
+    </div>
+
+    <hr>
+
+    <p>9,539 claims. Three states. One pattern that nobody was talking about. That's what happens when you stop reading reports and start reading data.</p>
+
+  </div>
+  <div class="post-nav">
+    <button class="post-nav-btn back-to-blog" onclick="closePost()">Back to Blog</button>
+    <button class="post-nav-btn" onclick="openPost('post-006')">Next: Sara — ICP agent in 3 hours →</button>
+  </div>
+</div>
+
+<!-- POST 006 -->
+<div class="single-post" id="post-006">
+  <div class="post-hero fade-up">
+    <div class="post-hero-cat">AI Agents</div>
+    <h1>Sara: a senior ICP agent built in under 3 hours</h1>
+    <div class="post-hero-meta">
+      <span class="post-hero-date">May 2025</span>
+      <span class="post-hero-dot"></span>
+      <span class="post-hero-read">7 min read</span>
+    </div>
+  </div>
+
+  <div class="post-content fade-up">
+
+    <p>Most people who try to build complex agents in Claude hit the usage limit before they run their first real test. I've done it. It's not a prompting problem — it's an architecture problem.</p>
+
+    <p>Sara is a B2B SaaS ICP Analyzer. She's a senior-level strategic agent that delivers deep market intelligence: who buys, why they buy, what stops them, and what metric they use to justify the spend. The full output is a 3-layer executive briefing ready to fuel a GTM strategy.</p>
+
+    <p>I built her in under 3 hours using only 20% of my monthly usage limit on a standard account. Here's the orchestration that made that possible.</p>
+
+    <!-- IMG-006-A: LLM Council workflow diagram — ChatGPT + Gemini + Perplexity feeding into Claude Opus -->
+    <div class="img-placeholder" id="img-006-a">
+      <div class="img-placeholder-icon">◻</div>
+      <div class="img-placeholder-id">IMG-006-A</div>
+      <div class="img-placeholder-desc">Workflow diagram — LLM Council orchestration: ChatGPT + Gemini + Perplexity → Claude Opus final execution</div>
+    </div>
+
+    <h2>The core problem: token economy</h2>
+
+    <p>Building a complex agent requires iteration. You define the persona, the scope, the skills, the output format. You test each component. You refine based on what breaks. That process is expensive — not in dollars, but in usage.</p>
+
+    <p>If you do all of that iteration inside Claude, you'll hit the ceiling before the agent is finished. The research phase alone — which is mostly exploratory and often gets thrown away — costs as much as the final build.</p>
+
+    <p>The solution isn't to build less. It's to do the expensive work somewhere cheaper.</p>
+
+    <h2>LLM Council as the research architect</h2>
+
+    <p>Instead of burning Claude tokens on research and definitions, I used LLM Council — a tool by Erik MacKinnon — to iterate across three models simultaneously: ChatGPT, Gemini, and Perplexity.</p>
+
+    <p>Having three distinct perspectives running in parallel let me:</p>
+
+    <ul>
+      <li>Refine Sara's persona and project scope through multiple lenses at once</li>
+      <li>Define the exact Skills and deliverables needed without guessing</li>
+      <li>Filter hallucinations through multimodal cross-validation before anything went into Claude</li>
+    </ul>
+
+    <p>By the time I moved to Claude Opus for the final build and execution, the architecture was already defined. I wasn't exploring — I was building. That's a completely different kind of work, and it uses tokens very differently.</p>
+
+    <!-- IMG-006-B: Sara's output — 3-layer ICP briefing example (redacted) -->
+    <div class="img-placeholder" id="img-006-b">
+      <div class="img-placeholder-icon">◻</div>
+      <div class="img-placeholder-id">IMG-006-B</div>
+      <div class="img-placeholder-desc">Sara output example — 3-layer ICP briefing (EOR market, key fields visible, client details redacted)</div>
+    </div>
+
+    <h2>The numbers</h2>
+
+    <div class="mono-block">
+      <p>Total build time: &lt; 3 hours</p>
+      <p>Claude usage consumed: ~20% of 5-hour window</p>
+      <p>Models used: ChatGPT + Gemini + Perplexity (research) + Claude Opus (execution)</p>
+      <p>Output layers: ICP Overview · Buying Committee · Growth Engine</p>
+    </div>
+
+    <p>If I had done the research directly in Claude, I would have hit the usage ceiling before running the first test report. The orchestration — not the prompting — is what made this efficient.</p>
+
+    <h2>What Sara actually produces</h2>
+
+    <p>The output is a three-layer briefing. The first layer is the ICP overview: who the ideal customer is, what their revenue range looks like, which industries they operate in, and where they're located. The second layer is the buying committee: who the champion is, who the economic buyer is, who the gatekeeper is, and what each one needs to hear. The third layer is the growth engine: the metrics that justify the purchase, the flywheel that drives expansion, and the signals that predict churn.</p>
+
+    <p>Together they give a GTM team what they need to build messaging, prioritize accounts, and structure conversations — without starting from assumptions.</p>
+
+    <blockquote>
+      <p>The real win is LLM Council. It makes it possible to interact with multiple models at once, giving you the best of every model while saving your heavy-duty tokens for final execution.</p>
+    </blockquote>
+
+    <hr>
+
+    <p>Token economy is a real constraint. But it's a design constraint, not a capability constraint. The agents that work within it aren't the ones with the best prompts — they're the ones with the most efficient architecture.</p>
+
+  </div>
+  <div class="post-nav">
+    <button class="post-nav-btn back-to-blog" onclick="closePost()">Back to Blog</button>
+    <button class="post-nav-btn" onclick="openPost('post-007')">Next: Technical specialists or AI strategists? →</button>
+  </div>
+</div>
+
+<!-- POST 007 -->
+<div class="single-post" id="post-007">
+  <div class="post-hero fade-up">
+    <div class="post-hero-cat">Workflow</div>
+    <h1>Technical specialists or AI strategists? The question agencies are getting wrong.</h1>
+    <div class="post-hero-meta">
+      <span class="post-hero-date">May 2026</span>
+      <span class="post-hero-dot"></span>
+      <span class="post-hero-read">6 min read</span>
+    </div>
+  </div>
+
+  <div class="post-content fade-up">
+
+    <!-- IMG-007-A: Animated GIF showing e-commerce + AI workflow -->
+    <div class="img-placeholder" id="img-007-a">
+      <div class="img-placeholder-icon">◻</div>
+      <div class="img-placeholder-id">IMG-007-A</div>
+      <div class="img-placeholder-desc">Animated workflow — E-commerce + AI integration flow (workflow-ecommerce-Ai.gif)</div>
+    </div>
+
+    <p>For years, the hiring model in digital marketing agencies was simple: find the person who knows the platform best. The Facebook Ads expert. The Shopify specialist. The Google Analytics guru. Stack enough specialists, and the results follow.</p>
+
+    <p>That model worked. And then the platforms changed underneath it.</p>
+
+    <p>After Apple's privacy updates — iOS 14.5 and everything that followed — the manual segmentation that made specialists valuable lost most of its edge. Meta's algorithm got better at targeting than any human. Broad audiences and Advantage+ campaigns started outperforming the carefully crafted audience stacks that specialists spent hours building.</p>
+
+    <p>The shift wasn't subtle. It was structural.</p>
+
+    <h2>The ceiling nobody talks about</h2>
+
+    <p>Being a technical specialist is still valuable. Knowing how to configure a Conversions API correctly, structure a product catalog, or diagnose why an Advantage+ campaign isn't spending — that knowledge matters.</p>
+
+    <p>But here's the problem: when the platform automates the execution, the specialist's ceiling drops fast. The value isn't in knowing which buttons to press anymore. The buttons are pressing themselves.</p>
+
+    <p>What matters now is knowing what signals to feed the algorithm, how to interpret what it does with them, and when to override its decisions with human judgment. That's not a technical skill. That's strategic thinking — and most agencies aren't hiring for it.</p>
+
+    <h2>What actually changed</h2>
+
+    <p>The best practices in e-commerce advertising today look nothing like they did three years ago. Broad targeting with Advantage+ Shopping Campaigns. Server-side tracking through CAPI. Creative-led strategies where the ad itself is the targeting mechanism. Dynamic catalogs. Unit economics as the primary optimization lever — not click-through rates.</p>
+
+    <p>Every one of those shifts moves the center of gravity away from platform expertise and toward system design. The person who wins isn't the one who knows Meta's interface best. It's the one who understands how the entire system connects — from the store to the pixel to the algorithm to the creative to the margin.</p>
+
+    <blockquote>
+      <p>The agencies that are growing aren't looking for "the best Meta buyer." They're looking for someone who can translate business objectives into automated systems — and knows when the automation needs a human override.</p>
+    </blockquote>
+
+    <h2>Where AI fits — and where it doesn't</h2>
+
+    <p>This is where most conversations about AI in agencies go wrong. People hear "AI" and think content generation. Write copy faster. Generate more creative variants. That's useful, but it's the least interesting part.</p>
+
+    <!-- IMG-007-B: Architecture diagram of e-commerce + paid media + AI integration -->
+    <div class="img-placeholder" id="img-007-b">
+      <div class="img-placeholder-icon">◻</div>
+      <div class="img-placeholder-id">IMG-007-B</div>
+      <div class="img-placeholder-desc">Architecture diagram — E-commerce + Paid Media + AI integration (E-Commerce and Paid Media.png)</div>
+    </div>
+
+    <p>The real shift is operational. AI as an analytical layer that monitors unit economics in real time. Orchestration tools that connect the e-commerce platform to the ad platform bidirectionally — adjusting budgets at 2 AM based on ROAS thresholds, not waiting for a human to check a dashboard in the morning.</p>
+
+    <p>I've built systems like this. Not because I'm a developer — I'm not — but because the architecture for connecting these pieces now exists in tools accessible to anyone who understands the logic. The technical barrier dropped. The strategic barrier didn't.</p>
+
+    <h2>The role that doesn't exist yet</h2>
+
+    <p>If I were building an agency team today, the most important hire wouldn't be a media buyer or a creative director. It would be someone I'd call an AI Systems Strategist — a hybrid profile that understands marketing, can connect APIs and automation tools, and translates business goals into systems that run without constant supervision.</p>
+
+    <p>This person doesn't need to code. They need to think in systems. They need to know when to automate and when to intervene. They need to understand that a 95% accuracy rate per step means a 10-step workflow only succeeds completely 60% of the time — and design accordingly.</p>
+
+    <p>That's not a job description most agencies are writing yet. But it's the role that will define which ones grow and which ones get stuck replacing specialists who can't keep up with platforms that are automating their own jobs.</p>
+
+    <div class="highlight">
+      <p>The question for agency owners isn't "should we use AI?" — that ship sailed. The question is: are you building a team of platform operators, or a team of system architects? The operators will always be one update behind. The architects build infrastructure that adapts.</p>
+    </div>
+
+    <hr>
+
+    <p>AI doesn't replace specialists. It restructures what they do. The agencies that see this early will have a structural advantage. The ones that keep hiring for the same roles they filled three years ago will keep wondering why their margins are shrinking.</p>
+
+    <p>The platform changed. The team structure needs to change with it.</p>
+
+  </div>
+  <div class="post-nav">
+    <button class="post-nav-btn back-to-blog" onclick="closePost()">Back to Blog</button>
+    <button class="post-nav-btn" onclick="openPost('post-001')">Back to first post →</button>
+  </div>
+</div>
+
+<script>
+// ── Fade in ──
+const fades = document.querySelectorAll('.fade-up');
+const fadeObs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 60);
+      fadeObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.06 });
+fades.forEach(el => fadeObs.observe(el));
+
+// ── Post navigation ──
+function openPost(id) {
+  document.getElementById('blog-list').style.display = 'none';
+  document.querySelectorAll('.single-post').forEach(p => p.classList.remove('active'));
+  const post = document.getElementById(id);
+  if (post) {
+    post.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Re-trigger fade for post content
+    post.querySelectorAll('.fade-up').forEach(el => {
+      el.classList.remove('visible');
+      setTimeout(() => el.classList.add('visible'), 100);
+    });
+  }
+}
+
+function closePost() {
+  document.querySelectorAll('.single-post').forEach(p => p.classList.remove('active'));
+  document.getElementById('blog-list').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── Topic filter — functional ──
+const filterMap = {
+  'All': null,
+  'AI Agents': 'ai-agents',
+  'Intelligence': 'intelligence',
+  'Workflow': 'workflow'
+};
+
+document.querySelectorAll('.blog-topic').forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Update active state
+    document.querySelectorAll('.blog-topic').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const category = filterMap[btn.textContent.trim()];
+    const cards = document.querySelectorAll('.post-card');
+
+    cards.forEach(card => {
+      if (!category || card.dataset.category === category) {
+        card.style.display = 'grid';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+// ── Mobile nav hide on scroll ──
+(function() {
+  let lastY = 0;
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth > 768) return;
+    const y = window.scrollY;
+    if (y > lastY && y > 60) {
+      nav.classList.add('nav-hidden');
+    } else {
+      nav.classList.remove('nav-hidden');
+    }
+    lastY = y;
+  }, { passive: true });
+})();
+
+// ── Hamburger menu ──
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+if (hamburger && mobileMenu) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+}
+</script>
+</body>
+</html>

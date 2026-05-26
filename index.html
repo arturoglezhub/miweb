@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<title>Arturo González García — Business & Marketing Development & AI-Powered Systems</title>
+<meta name="description" content="I build deep market intelligence powered by AI to help businesses find new customers without running ads or increasing marketing budget. 10+ years, 5+ sectors, 3 AI agents in production.">
+<meta name="keywords" content="marketing strategist, AI builder, market intelligence, AI agents, operations, B2B, vacation properties, mining intelligence, Mexico, remote">
+<meta name="author" content="Arturo González García">
+<link rel="canonical" href="https://arturo-gonzalez.netlify.app/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23e63425'/><text x='16' y='23' font-family='serif' font-size='20' font-weight='700' text-anchor='middle' fill='white'>A</text></svg>">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Arturo González García — Business & Marketing Development & AI-Powered Systems">
+<meta property="og:description" content="I build deep market intelligence powered by AI to help businesses find new customers without running ads or increasing marketing budget.">
+<meta property="og:url" content="https://arturo-gonzalez.netlify.app/">
+<meta property="og:image" content="https://arturo-gonzalez.netlify.app/Arturo_Gonzalez_photo.png">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Arturo González García — Business & Marketing Development & AI-Powered Systems">
+<meta name="twitter:description" content="I build deep market intelligence powered by AI to help businesses find new customers without running ads or increasing marketing budget.">
+<meta name="twitter:image" content="https://arturo-gonzalez.netlify.app/Arturo_Gonzalez_photo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --white: #f4f2ed;
+  --off: #eceae3;
+  --border: #d0cdc4;
+  --text: #16150f;
+  --mid: #4a4840;
+  --dim: #9a9488;
+  --red: #e63425;
+  --red-d: #c02a1e;
+  --black: #111110;
+  --black2: #1a1918;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--white); color: var(--text); font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; line-height: 1.5; }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0.9rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(244,242,237,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+.nav-brand { display: flex; flex-direction: column; gap: 0.15rem; text-decoration: none; }
+.nav-name { font-size: 0.9rem; font-weight: 700; color: var(--text); letter-spacing: -0.01em; }
+.nav-sub { font-family: 'DM Mono', monospace; font-size: 0.52rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); }
+.nav-right { display: flex; align-items: center; gap: 1.5rem; }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--red); }
+.nav-cta { background: var(--red); color: #fff !important; padding: 0.5rem 1rem; font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+.nav-cta:hover { background: var(--red-d) !important; }
+
+/* Hamburger */
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+.nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.3s ease; }
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile dropdown menu */
+.nav-mobile-menu { display: none; position: fixed; top: 60px; left: 0; right: 0; background: rgba(244,242,237,0.98); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 1.5rem; z-index: 190; flex-direction: column; gap: 0; }
+.nav-mobile-menu.open { display: flex; }
+.nav-mobile-menu li { list-style: none; border-bottom: 1px solid var(--border); }
+.nav-mobile-menu li:last-child { border-bottom: none; }
+.nav-mobile-menu a { display: block; padding: 0.9rem 0; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mid); text-decoration: none; transition: color 0.2s; }
+.nav-mobile-menu a:hover { color: var(--red); }
+
+/* HERO */
+.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr; padding-top: 66px; }
+.hero-left { display: flex; flex-direction: column; justify-content: center; padding: 5rem 4rem 5rem 3rem; }
+.hero-tag { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dim); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.7rem; }
+.hero-tag::before { content: '—'; color: var(--red); }
+.hero-name { font-size: clamp(2.8rem, 5.5vw, 6rem); font-weight: 700; line-height: 0.96; color: var(--text); letter-spacing: -0.03em; margin-bottom: 2rem; }
+.hero-name span { color: var(--red); }
+.hero-role { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); margin-bottom: 2rem; line-height: 2.4; }
+.hero-desc { font-size: 1.05rem; color: var(--mid); max-width: 620px; line-height: 1.75; margin-bottom: 2.5rem; font-weight: 300; }
+.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-cta-primary { display: inline-flex; align-items: center; gap: 0.8rem; padding: 1.1rem 2.2rem; background: var(--red); color: #fff; text-decoration: none; font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; transition: background 0.25s, transform 0.2s; }
+.hero-cta-primary:hover { background: var(--red-d); transform: translateY(-2px); }
+
+/* SECTION LABEL */
+.section-label { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.7rem; }
+.section-label::before { content: ''; width: 1.5rem; height: 1px; background: var(--red); }
+
+/* ABOUT */
+.about { display: grid; grid-template-columns: 1fr 2fr; border-top: 1px solid var(--border); }
+.about-left { padding: 5rem 3rem; border-right: 1px solid var(--border); background: var(--off); }
+.about-photo { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top; filter: grayscale(100%) contrast(1.05); margin-bottom: 0; border: 1px solid var(--border); }
+.about-right { padding: 5rem 4rem; }
+.about-right h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; color: var(--text); margin-bottom: 2.5rem; margin-top: 1rem; }
+.about-right h2 span { color: var(--red); }
+.about-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--border); margin-bottom: 2.5rem; }
+.about-stat { padding: 1.5rem 2rem; border-right: 1px solid var(--border); }
+.about-stat:last-child { border-right: none; }
+.about-stat-val { font-size: 2.2rem; font-weight: 700; color: var(--text); line-height: 1; letter-spacing: -0.02em; margin-bottom: 0.3rem; }
+.about-stat-val span { color: var(--red); }
+.about-stat-label { font-family: 'DM Mono', monospace; font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); }
+.about-right p { font-size: 0.93rem; line-height: 1.85; color: var(--mid); font-weight: 300; max-width: 560px; margin-bottom: 1.25rem; }
+.about-tags-profile { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.5rem; }
+.tag { font-family: 'DM Mono', monospace; font-size: 0.54rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); border: 1px solid var(--border); padding: 0.35rem 0.75rem; width: fit-content; transition: all 0.2s; background: var(--off); }
+.tag:hover { border-color: var(--red); color: var(--red); }
+
+/* ACCORDION */
+.accordion-section { border-top: 1px solid var(--border); }
+.accordion-trigger { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 2.5rem 3rem; background: none; border: none; cursor: pointer; text-align: left; transition: background 0.2s; gap: 2rem; }
+.accordion-trigger:hover { background: var(--off); }
+.accordion-trigger-left { display: flex; flex-direction: column; gap: 0.5rem; }
+.accordion-cat { font-family: 'DM Mono', monospace; font-size: 0.56rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); }
+.accordion-title { font-size: clamp(1.8rem, 3.5vw, 3.5rem); font-weight: 700; line-height: 1.0; letter-spacing: -0.03em; color: var(--text); }
+.accordion-title span { color: var(--red); }
+.accordion-icon { width: 44px; height: 44px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.3s ease; background: var(--white); }
+.accordion-icon svg { transition: transform 0.3s ease; }
+.accordion-trigger[aria-expanded="true"] .accordion-icon { background: var(--red); border-color: var(--red); }
+.accordion-trigger[aria-expanded="true"] .accordion-icon svg { transform: rotate(180deg); }
+.accordion-trigger[aria-expanded="true"] .accordion-icon path { stroke: white; }
+.accordion-body { overflow: hidden; max-height: 0; transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1); }
+.accordion-body.open { max-height: 9999px; }
+.accordion-inner { padding: 0 3rem 3rem; }
+
+/* Accordion for dark sections */
+.accordion-section.dark { background: var(--black); }
+.accordion-section.dark .accordion-trigger { color: #f4f2ed; }
+.accordion-section.dark .accordion-trigger:hover { background: var(--black2); }
+.accordion-section.dark .accordion-cat { color: var(--red); }
+.accordion-section.dark .accordion-title { color: #f4f2ed; }
+.accordion-section.dark .accordion-icon { border-color: rgba(255,255,255,0.15); background: transparent; }
+.accordion-section.dark .accordion-icon path { stroke: #f4f2ed; }
+.accordion-section.dark .accordion-trigger[aria-expanded="true"] .accordion-icon { background: var(--red); border-color: var(--red); }
+.accordion-section.dark .accordion-inner { background: var(--black); }
+
+/* Accordion for off sections */
+.accordion-section.off-bg { background: var(--off); }
+.accordion-section.off-bg .accordion-trigger:hover { background: rgba(0,0,0,0.03); }
+.accordion-section.off-bg .accordion-inner { padding-bottom: 3rem; }
+
+/* WORK — inside accordion */
+.work-inner { }
+.case { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); margin-bottom: 1.5rem; }
+.case-left { padding: 3rem; border-right: 1px solid var(--border); }
+.case-industry { font-family: 'DM Mono', monospace; font-size: 0.54rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); margin-bottom: 1.25rem; }
+.case-title { font-size: 1.6rem; font-weight: 700; color: var(--text); margin-bottom: 1.25rem; line-height: 1.1; letter-spacing: -0.02em; }
+.case-desc { font-size: 0.875rem; line-height: 1.8; color: var(--mid); font-weight: 300; margin-bottom: 1.5rem; }
+.case-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.pill { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); border: 1px solid var(--border); padding: 0.25rem 0.6rem; background: var(--off); }
+.case-right { display: grid; grid-template-columns: 1fr 1fr; }
+.case-stat { padding: 2rem 1.75rem; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); }
+.case-stat:nth-child(even) { border-right: none; }
+.case-stat:nth-last-child(-n+2) { border-bottom: none; }
+.case-stat-val { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 700; color: var(--text); line-height: 1; margin-bottom: 0.4rem; letter-spacing: -0.02em; }
+.case-stat-val span { color: var(--red); }
+.case-stat-label { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+
+/* CASE wide */
+.case-wide { grid-template-columns: 1fr; }
+.case-wide .case-left { border-right: none; border-bottom: 1px solid var(--border); }
+.case-wide-stats { display: grid; grid-template-columns: repeat(4, 1fr); }
+.case-wide-stat { padding: 2rem 1.75rem; border-right: 1px solid var(--border); }
+.case-wide-stat:last-child { border-right: none; }
+.case-wide-stat-val { font-size: clamp(1.4rem, 2.5vw, 2.2rem); font-weight: 700; color: var(--text); line-height: 1.1; margin-bottom: 0.4rem; letter-spacing: -0.02em; }
+.case-wide-stat-val span { color: var(--red); }
+.case-wide-stat-label { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); line-height: 1.5; }
+
+/* MID CTA BANNER */
+.mid-cta { background: var(--red); padding: 3rem; display: flex; justify-content: space-between; align-items: center; gap: 2rem; }
+.mid-cta-text { font-size: clamp(1.2rem, 2.5vw, 1.8rem); font-weight: 700; color: #fff; letter-spacing: -0.02em; line-height: 1.2; }
+.mid-cta-sub { font-size: 0.85rem; color: rgba(255,255,255,0.7); font-weight: 300; margin-top: 0.4rem; }
+.mid-cta-btn { display: inline-flex; align-items: center; gap: 0.8rem; padding: 1rem 2rem; background: #fff; color: var(--red); text-decoration: none; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; transition: all 0.2s; flex-shrink: 0; font-weight: 600; }
+.mid-cta-btn:hover { background: var(--off); }
+
+/* INTEL — inside dark accordion */
+.intel-watermark { position: absolute; right: -2rem; bottom: -4rem; font-size: min(28rem, 50vw); font-weight: 700; color: rgba(255,255,255,0.025); letter-spacing: -0.05em; line-height: 1; pointer-events: none; z-index: 0; user-select: none; }
+.intel-label { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.7rem; }
+.intel-label::before { content: ''; width: 1.5rem; height: 1px; background: var(--red); }
+.agents-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.07); }
+.agent-block { background: var(--black); padding: 3rem 2.5rem; transition: background 0.3s; position: relative; overflow: hidden; }
+.agent-block:hover { background: var(--black2); }
+.agent-block::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+.agent-block:hover::before { transform: scaleX(1); }
+.agent-dot { width: 6px; height: 6px; background: var(--red); border-radius: 50%; display: inline-block; margin-right: 0.5rem; animation: blink 2s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.15} }
+.agent-name { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(244,242,237,0.4); margin-bottom: 1.5rem; display: flex; align-items: center; }
+.agent-title { font-size: 1.5rem; font-weight: 700; color: #f4f2ed; margin-bottom: 1rem; line-height: 1.2; letter-spacing: -0.01em; }
+.agent-desc { font-size: 0.84rem; line-height: 1.8; color: rgba(244,242,237,0.5); font-weight: 300; margin-bottom: 2rem; }
+.agent-metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.07); }
+.agent-m { background: var(--black); padding: 1rem 1.25rem; }
+.agent-m-val { font-size: 1.6rem; font-weight: 700; color: #f4f2ed; line-height: 1; margin-bottom: 0.2rem; letter-spacing: -0.02em; }
+.agent-m-val span { color: var(--red); }
+.agent-m-label { font-family: 'DM Mono', monospace; font-size: 0.46rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,242,237,0.3); }
+.agent-deep { grid-column: 1 / -1; display: grid; grid-template-columns: 2fr 1fr; background: #131211; border: 1px solid rgba(255,255,255,0.07); }
+.agent-deep-left { padding: 3rem; border-right: 1px solid rgba(255,255,255,0.07); }
+.agent-deep-right { padding: 3rem; display: flex; flex-direction: column; gap: 2rem; }
+.deep-stat-val { font-size: 3.5rem; font-weight: 700; color: #f4f2ed; letter-spacing: -0.03em; line-height: 1; margin-bottom: 0.3rem; }
+.deep-stat-val span { color: var(--red); }
+.deep-stat-label { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(244,242,237,0.3); }
+.deep-stack-item { padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); font-size: 0.82rem; color: rgba(244,242,237,0.45); font-weight: 300; display: flex; align-items: center; gap: 0.75rem; }
+.deep-stack-item:last-child { border-bottom: none; }
+.deep-stack-dot { width: 4px; height: 4px; background: var(--red); border-radius: 50%; flex-shrink: 0; }
+.agent-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.5rem; }
+.agent-pill { font-family: 'DM Mono', monospace; font-size: 0.48rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(244,242,237,0.3); border: 1px solid rgba(255,255,255,0.08); padding: 0.25rem 0.6rem; }
+
+/* SERVICES — inside accordion */
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--border); }
+.svc { padding: 3rem 2.5rem; border-right: 1px solid var(--border); position: relative; overflow: hidden; transition: background 0.25s; }
+.svc:last-child { border-right: none; }
+.svc:hover { background: var(--off); }
+.svc-num { font-size: clamp(4rem, 7vw, 7rem); font-weight: 700; color: var(--border); line-height: 1; margin-bottom: 1.5rem; letter-spacing: -0.04em; transition: color 0.25s; }
+.svc:hover .svc-num { color: rgba(230,52,37,0.12); }
+.svc-name { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.75rem; line-height: 1.3; }
+.svc-desc { font-size: 0.84rem; line-height: 1.8; color: var(--dim); font-weight: 300; }
+.svc-bar { position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background: var(--red); transition: width 0.4s ease; }
+.svc:hover .svc-bar { width: 100%; }
+
+/* PROCESS — inside off accordion */
+.process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
+.process-step { background: var(--white); padding: 2.5rem; }
+.step-n { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.18em; color: var(--red); margin-bottom: 1rem; }
+.step-t { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.75rem; line-height: 1.3; }
+.step-d { font-size: 0.82rem; line-height: 1.8; color: var(--dim); font-weight: 300; }
+
+/* BIG COMPANIES — inside dark accordion */
+.bc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.07); }
+.bc-card { background: var(--black); padding: 3rem 2.5rem; transition: background 0.3s; position: relative; overflow: hidden; }
+.bc-card:hover { background: var(--black2); }
+.bc-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+.bc-card:hover::before { transform: scaleX(1); }
+.bc-company { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(244,242,237,0.35); margin-bottom: 1rem; }
+.bc-role { font-size: 1.35rem; font-weight: 700; color: #f4f2ed; margin-bottom: 1rem; line-height: 1.2; letter-spacing: -0.01em; }
+.bc-desc { font-size: 0.87rem; line-height: 1.8; color: rgba(244,242,237,0.5); font-weight: 300; }
+.bc-closing { grid-column: 1 / -1; background: rgba(230,52,37,0.06); border: 1px solid rgba(230,52,37,0.2); padding: 2rem 2.5rem; font-size: 0.93rem; line-height: 1.8; color: rgba(244,242,237,0.65); font-style: italic; }
+.bc-closing strong { color: #f4f2ed; font-style: normal; }
+
+/* BUSINESS DEVELOPMENT — inside accordion */
+.biz-dev-inner { display: grid; grid-template-columns: 1fr 2fr; gap: 6rem; align-items: start; }
+.biz-dev-left h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; line-height: 1; letter-spacing: -0.03em; color: var(--text); margin-top: 1rem; margin-bottom: 1.5rem; }
+.biz-dev-left h2 span { color: var(--red); }
+.biz-dev-left p { font-size: 0.88rem; line-height: 1.8; color: var(--dim); font-weight: 300; }
+.biz-dev-right p { font-size: 0.93rem; line-height: 1.85; color: var(--mid); font-weight: 300; margin-bottom: 1.5rem; }
+.biz-dev-right p:last-child { margin-bottom: 0; }
+.biz-dev-topics { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+.biz-dev-topic { font-family: 'DM Mono', monospace; font-size: 0.52rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); border: 1px solid var(--border); padding: 0.35rem 0.75rem; background: var(--off); }
+
+/* CERTIFICATIONS — inside off accordion */
+.certs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); }
+.cert-card { background: var(--white); padding: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; transition: background 0.2s; }
+.cert-card:hover { background: rgba(230,52,37,0.03); }
+.cert-issuer { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--red); }
+.cert-name { font-size: 0.82rem; font-weight: 600; color: var(--text); line-height: 1.3; }
+.cert-date { font-family: 'DM Mono', monospace; font-size: 0.48rem; letter-spacing: 0.1em; color: var(--dim); }
+
+/* CONTACT */
+.contact { border-top: 1px solid var(--border); display: grid; grid-template-columns: 1fr 1fr; }
+.contact-left { padding: 6rem 4rem 6rem 3rem; border-right: 1px solid var(--border); }
+.contact-left h2 { font-size: clamp(2.2rem, 4.5vw, 4.5rem); font-weight: 700; letter-spacing: -0.03em; color: var(--text); line-height: 1; margin-bottom: 1.5rem; margin-top: 1rem; }
+.contact-left h2 span { color: var(--red); }
+.contact-left p { font-size: 0.9rem; line-height: 1.85; color: var(--mid); font-weight: 300; margin-bottom: 3rem; max-width: 400px; }
+.contact-btns { display: flex; flex-direction: column; gap: 0.75rem; }
+.contact-btn { display: flex; align-items: center; gap: 1.5rem; padding: 1.1rem 1.5rem; border: 1px solid var(--border); text-decoration: none; color: var(--text); transition: all 0.25s; background: var(--white); }
+.contact-btn:hover { border-color: var(--red); color: var(--red); transform: translateX(4px); }
+.contact-btn-type { font-family: 'DM Mono', monospace; font-size: 0.52rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dim); min-width: 72px; transition: color 0.25s; }
+.contact-btn:hover .contact-btn-type { color: var(--red); }
+.contact-btn-val { font-size: 0.875rem; }
+.contact-right { padding: 6rem 3rem; background: var(--off); }
+.form-title { font-size: 1.5rem; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; letter-spacing: -0.01em; }
+.form-sub { font-size: 0.85rem; color: var(--dim); font-weight: 300; margin-bottom: 2.5rem; }
+.form-group { margin-bottom: 1.75rem; }
+.form-label { font-family: 'DM Mono', monospace; font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dim); display: block; margin-bottom: 0.5rem; }
+.form-input { width: 100%; background: transparent; border: none; border-bottom: 1px solid var(--border); color: var(--text); font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; padding: 0.75rem 0; outline: none; transition: border-color 0.2s; }
+.form-input:focus { border-color: var(--red); }
+.form-input::placeholder { color: var(--border); }
+textarea.form-input { resize: none; height: 90px; }
+.form-submit { width: 100%; padding: 1.1rem; background: var(--red); border: none; color: #fff; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; cursor: pointer; transition: background 0.25s, transform 0.2s; margin-top: 0.5rem; }
+.form-submit:hover { background: var(--red-d); transform: translateY(-2px); }
+
+/* FOOTER */
+footer { padding: 2.5rem 3rem; border-top: 1px solid var(--border); background: var(--black); color: #f4f2ed; }
+.footer-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.footer-name { font-size: 1rem; font-weight: 700; color: #f4f2ed; margin-bottom: 0.3rem; letter-spacing: -0.01em; }
+.footer-role { font-family: 'DM Mono', monospace; font-size: 0.52rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(244,242,237,0.4); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-link { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(244,242,237,0.4); text-decoration: none; transition: color 0.2s; }
+.footer-link:hover { color: var(--red); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-family: 'DM Mono', monospace; font-size: 0.52rem; letter-spacing: 0.1em; color: rgba(244,242,237,0.25); }
+.footer-cta { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.75rem 1.5rem; background: var(--red); color: #fff; text-decoration: none; font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; transition: background 0.25s; }
+.footer-cta:hover { background: var(--red-d); }
+
+/* FADE */
+.fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden; max-width: 100vw; }
+  nav { padding: 0.9rem 1.25rem; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .hero-left { padding: 5rem 1.25rem 3rem; }
+  .hero-ctas { flex-direction: column; }
+  .hero-cta-primary { justify-content: center; }
+  .about { grid-template-columns: 1fr; }
+  .about-left { padding: 3rem 1.25rem; border-right: none; border-bottom: 1px solid var(--border); }
+  .about-right { padding: 3rem 1.25rem; }
+  .about-stat-row { grid-template-columns: 1fr 1fr; }
+  .about-stat:nth-child(3) { grid-column: 1 / -1; border-right: none; border-top: 1px solid var(--border); }
+  .accordion-trigger { padding: 1.75rem 1.25rem; }
+  .accordion-inner { padding: 0 1.25rem 2.5rem; }
+  .accordion-title { font-size: clamp(1.4rem, 6vw, 2.2rem); }
+  .case { grid-template-columns: 1fr; }
+  .case-left { border-right: none; border-bottom: 1px solid var(--border); padding: 2rem 1.25rem; }
+  .case-right { grid-template-columns: 1fr 1fr; }
+  .case-wide .case-left { padding: 2rem 1.25rem; }
+  .case-wide-stats { grid-template-columns: 1fr 1fr; }
+  .case-wide-stat:nth-child(even) { border-right: none; }
+  .case-wide-stat:nth-child(n+3) { border-top: 1px solid var(--border); }
+  .mid-cta { flex-direction: column; align-items: flex-start; padding: 2rem 1.25rem; }
+  .agents-grid { grid-template-columns: 1fr; }
+  .agent-block { padding: 2rem 1.25rem; }
+  .agent-deep { grid-template-columns: 1fr; }
+  .agent-deep-left { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); padding: 2rem 1.25rem; }
+  .agent-deep-right { padding: 2rem 1.25rem; }
+  .services-grid { grid-template-columns: 1fr; }
+  .svc { border-right: none; border-bottom: 1px solid var(--border); }
+  .svc:last-child { border-bottom: none; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .bc-grid { grid-template-columns: 1fr; }
+  .bc-closing { padding: 1.5rem 1.25rem; }
+  .biz-dev-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .certs-grid { grid-template-columns: 1fr 1fr; }
+  .contact { grid-template-columns: 1fr; }
+  .contact-left { padding: 4rem 1.25rem; border-right: none; border-bottom: 1px solid var(--border); }
+  .contact-right { padding: 3rem 1.25rem; }
+  footer { padding: 2rem 1.25rem; }
+  .footer-top { flex-direction: column; gap: 1.5rem; }
+  .footer-links { flex-wrap: wrap; gap: 1rem; }
+  .footer-bottom { flex-direction: column; gap: 1rem; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">
+    <span class="nav-name">Arturo González</span>
+    <span class="nav-sub">Marketing &amp; AI Systems Builder · Portfolio</span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#intel">Agents</a></li>
+      <li><a href="#big-companies">Big Co.</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <a href="mailto:elemental.agonzalez@gmail.com" class="nav-cta">Let's Talk</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<ul class="nav-mobile-menu" id="mobile-menu">
+  <li><a href="#about" class="mobile-link">About</a></li>
+  <li><a href="#work" class="mobile-link">Work</a></li>
+  <li><a href="#intel" class="mobile-link">Agents</a></li>
+  <li><a href="#big-companies" class="mobile-link">Big Companies</a></li>
+  <li><a href="#services" class="mobile-link">Services</a></li>
+  <li><a href="blog.html" class="mobile-link">Blog</a></li>
+  <li><a href="#contact" class="mobile-link">Contact</a></li>
+</ul>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left fade-up">
+    <div class="hero-tag">Hello</div>
+    <h1 class="hero-name"><span>Business &amp; Marketing</span><br>Development<br>&amp; AI-Powered<br>Systems</h1>
+    <div class="hero-role">Arturo González García</div>
+    <p class="hero-desc">I build deep market intelligence powered by AI to help businesses find new customers without running ads or increasing marketing budget.</p>
+    <div class="hero-ctas">
+      <a href="mailto:elemental.agonzalez@gmail.com" class="hero-cta-primary">Let's Talk →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-left fade-up">
+    <div class="section-label">About</div>
+    <img src="Arturo_Gonzalez_photo.png" class="about-photo" alt="Arturo González García">
+  </div>
+  <div class="about-right fade-up">
+    <div class="section-label">Profile</div>
+    <h2>Marketing and <span>Research</span> that transforms businesses.</h2>
+    <div class="about-stat-row">
+      <div class="about-stat">
+        <div class="about-stat-val"><span>10</span>+</div>
+        <div class="about-stat-label">Years experience</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-val"><span>5</span>+</div>
+        <div class="about-stat-label">Sectors: Big Co. · Services · B2B · B2C · Startups</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-val"><span>3</span></div>
+        <div class="about-stat-label">AI Agents in Claude · ICP · Mining · Drilling</div>
+      </div>
+    </div>
+    <p>I'm a researcher, marketing and Business dev. When I enter a business, I see what needs to be improved and I build systems to make it real. Architecture background (ITESO). Bilingual ES/EN. A decade leading teams and building systems across 5+ sector industries that needed results.</p>
+    <div class="about-tags-profile">
+      <span class="tag">Research</span>
+      <span class="tag">Strategic Marketing</span>
+      <span class="tag">Paid Media</span>
+      <span class="tag">AI Systems</span>
+      <span class="tag">Operations</span>
+      <span class="tag">Team Leadership</span>
+      <span class="tag">Bilingual ES/EN</span>
+      <span class="tag">B2B &amp; B2C</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── ACCORDION SECTIONS ── -->
+
+<!-- WORK -->
+<div class="accordion-section" id="work">
+  <button class="accordion-trigger" aria-expanded="false" data-target="acc-work">
+    <div class="accordion-trigger-left">
+      <span class="accordion-cat">Work</span>
+      <span class="accordion-title">Real results.<br><span>Documented.</span></span>
+    </div>
+    <div class="accordion-icon">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6L8 11L13 6" stroke="#16150f" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+  </button>
+  <div class="accordion-body" id="acc-work">
+    <div class="accordion-inner">
+
+      <!-- CASO 1 — Pre-Market Contract Detection -->
+      <div class="case case-wide fade-up">
+        <div class="case-left">
+          <div class="case-industry">Mining Exploration &amp; Diamond Core Drilling</div>
+          <div class="case-title">Pre-Market Contract<br>Detection System</div>
+          <p class="case-desc">The challenge was finding market signals before they appeared in news or social media. I started by analyzing the real information sources — federal safety records, land claims, environmental permits, corporate registries — and gradually modeled the databases to find early indicators. When the analytical framework was solid, I built an Agent that performs deep-level analysis and connects far more data points than any manual process could. The system was built with Power BI for data modeling, Notion for operational memory and audit trails, Claude as the reasoning engine, custom Skills for each analytical layer, and a personality designed for precision — with persistent memory and a tightly controlled reporting system to maintain traceability and prevent data loss.</p>
+          <div class="case-pills">
+            <span class="pill">AI Agentic</span><span class="pill">AI Generative</span><span class="pill">Power BI</span><span class="pill">Notion</span><span class="pill">6+ Government Databases</span><span class="pill">Signal Scoring</span><span class="pill">Pre-announcement Detection</span>
+          </div>
+        </div>
+        <div class="case-wide-stats">
+          <div class="case-wide-stat"><div class="case-wide-stat-val"><span>10</span>+</div><div class="case-wide-stat-label">Qualified leads in 60 days</div></div>
+          <div class="case-wide-stat"><div class="case-wide-stat-val"><span>45</span>+</div><div class="case-wide-stat-label">Entity exclusion list · ~70% false positives eliminated</div></div>
+          <div class="case-wide-stat"><div class="case-wide-stat-val"><span>5</span></div><div class="case-wide-stat-label">Signal convergence model · 6+ government databases per cycle</div></div>
+          <div class="case-wide-stat"><div class="case-wide-stat-val"><span>3–12</span></div><div class="case-wide-stat-label">Months ahead of public disclosure · Detection window</div></div>
+        </div>
+      </div>
+
+      <!-- CASO 2 — Agency Communication Plan System -->
+      <div class="case fade-up">
+        <div class="case-left">
+          <div class="case-industry">Marketing Operations · Agency Tool · 2025</div>
+          <div class="case-title">Agency Communication<br>Plan System</div>
+          <p class="case-desc">The challenge was preventing the agency from starting from scratch with every new client — where the team had to ask themselves what to do over and over again. I built a client-friendly system in Notion where one or two sessions were enough to collect all the data the entire team needed. My role wasn't just building the system — it was implementing it, managing follow-ups, administering tasks, bridging the gap between agency and client, and keeping the operation active day to day.</p>
+          <div class="case-pills">
+            <span class="pill">Notion</span><span class="pill">AI Agentic</span><span class="pill">AI Generative</span><span class="pill">Market Research Framework</span><span class="pill">Audience Segmentation</span><span class="pill">Brand Positioning</span><span class="pill">Content Strategy</span><span class="pill">Implementation &amp; Follow-up</span>
+          </div>
+        </div>
+        <div class="case-right">
+          <div class="case-stat"><div class="case-stat-val"><span>6</span></div><div class="case-stat-label">Strategic modules in one system</div></div>
+          <div class="case-stat"><div class="case-stat-val"><span>1–2</span></div><div class="case-stat-label">Sessions to full client onboarding</div></div>
+          <div class="case-stat" style="grid-column: 1 / -1; border-right: none; border-bottom: none;"><div class="case-stat-val" style="font-size: 1.1rem; color: var(--mid); line-height:1.5; font-weight:400;">From ICP definition to editorial calendar — one system that eliminates the setup cost of every new client onboarding.</div></div>
+        </div>
+      </div>
+
+      <!-- CASO 3 — 2-Restaurant Chain -->
+      <div class="case fade-up">
+        <div class="case-left">
+          <div class="case-industry">F&amp;B Operations · Durango, México · 2025</div>
+          <div class="case-title">2-Restaurant Chain<br>Full Notion Migration</div>
+          <p class="case-desc">Having owned a restaurant for 4.5 years, I had already developed complete internal operations and administration systems from the ground up. I applied that hard-won knowledge to this project — grounded in Notion and leveraging its native advantages: email integrations, automations, rules, filters, and formulas. It took 90 days to fully map the operational and financial workflow, including two on-site visits to work directly with staff and implement the system hands-on.</p>
+          <div class="case-pills">
+            <span class="pill">Notion</span><span class="pill">AI Generative</span><span class="pill">AI Agentic</span><span class="pill">Inventory Tracking</span><span class="pill">Payroll &amp; Costs</span><span class="pill">Automated Ordering</span><span class="pill">KPI Dashboards</span><span class="pill">On-site Implementation</span>
+          </div>
+        </div>
+        <div class="case-right">
+          <div class="case-stat"><div class="case-stat-val"><span>5</span>%</div><div class="case-stat-label">Margin increase via cost savings</div></div>
+          <div class="case-stat"><div class="case-stat-val"><span>2</span></div><div class="case-stat-label">Locations migrated</div></div>
+          <div class="case-stat"><div class="case-stat-val"><span>90</span></div><div class="case-stat-label">Days · Full deployment</div></div>
+          <div class="case-stat"><div class="case-stat-val"><span>100</span>%</div><div class="case-stat-label">Operations on Notion</div></div>
+        </div>
+      </div>
+
+      <!-- CASO 4 — 3 Beachfront Houses Airbnb -->
+      <div class="case fade-up">
+        <div class="case-left">
+          <div class="case-industry">Tourism &amp; Hospitality · Mexico</div>
+          <div class="case-title">3 Beachfront Houses<br>Airbnb Mexico</div>
+          <p class="case-desc">It started with a deep buyer persona investigation that revealed we needed a completely new audience. We changed the entire narrative, the brand image, the photography and video style, and built a new website that reflected the type of product the ideal customers were actually looking for. Then we launched Meta campaigns designed for each stage of the conversion funnel — driving conversations, website visits, and Airbnb traffic simultaneously — and significantly increased bookings.</p>
+          <div class="case-pills">
+            <span class="pill">Meta Business Manager</span><span class="pill">Lodgify</span><span class="pill">Notion</span><span class="pill">AI Generative</span><span class="pill">Deep Market Research</span><span class="pill">Brand Identity</span><span class="pill">Paid Media</span><span class="pill">Analytics</span><span class="pill">Photography</span><span class="pill">OTA Optimization</span>
+          </div>
+        </div>
+        <div class="case-right">
+          <div class="case-stat"><div class="case-stat-val"><span class="count-up" data-target="56">0</span></div><div class="case-stat-label">Bookings generated</div></div>
+          <div class="case-stat"><div class="case-stat-val"><span class="count-up" data-target="2.4" data-decimal="1">0</span>%</div><div class="case-stat-label">Marketing cost vs sales</div></div>
+          <div class="case-stat"><div class="case-stat-val"><span>90</span></div><div class="case-stat-label">Days · From zero to results</div></div>
+          <div class="case-stat"><div class="case-stat-val"><span>Full</span></div><div class="case-stat-label">Rebrand · New audience · New identity</div></div>
+        </div>
+      </div>
+
+      <!-- CASO 5 — Real Estate Course Sales Campaign -->
+      <div class="case fade-up">
+        <div class="case-left">
+          <div class="case-industry">Real Estate Education · León, México · 2023</div>
+          <div class="case-title">Real Estate Course<br>Sales Campaign</div>
+          <p class="case-desc">The challenge was feeding the sales team with enough leads without burning out the ad creative. Campaign objective: generate conversations so the sales team could deliver the value pitch. We went from 5 leads per day to over 80, achieving approximately 5% close rate. The structure: awareness campaigns for 2 weeks, comparison campaigns in week 3, and sales/retargeting in week 4 — scaling budgets based on ad performance in real time.</p>
+          <div class="case-pills">
+            <span class="pill">Meta Business Manager</span><span class="pill">Notion</span><span class="pill">Team Leadership · 8 People</span><span class="pill">CRM Pipeline</span><span class="pill">Sales Funnel</span><span class="pill">Weekly Campaign Cycles</span>
+          </div>
+        </div>
+        <div class="case-right">
+          <div class="case-stat"><div class="case-stat-val"><span>5</span>→<span>80</span>+</div><div class="case-stat-label">Leads per day · Growth</div></div>
+          <div class="case-stat"><div class="case-stat-val">~<span>5</span>%</div><div class="case-stat-label">Close rate achieved</div></div>
+          <div class="case-stat"><div class="case-stat-val"><span>8</span></div><div class="case-stat-label">Team members led</div></div>
+          <div class="case-stat"><div class="case-stat-val"><span>4</span>wk</div><div class="case-stat-label">Campaign cycle structure</div></div>
+        </div>
+      </div>
+
+      <!-- CASO 6 — Fishing Boat Charter -->
+      <div class="case fade-up">
+        <div class="case-left">
+          <div class="case-industry">Nautical Tourism · Cancún, México</div>
+          <div class="case-title">Fishing Boat Charter<br>Cancún</div>
+          <p class="case-desc">A sport fishing charter at Sunset Marina with zero digital presence. The first step was deep market research to understand how to build from scratch — competitor landscape, pricing benchmarks, untapped booking channels, and the tourist behavior patterns that drive demand. Currently in the strategy-to-execution phase.</p>
+          <div class="case-pills">
+            <span class="pill">AI Generative</span><span class="pill">AI Agentic</span><span class="pill">Notion</span><span class="pill">Market Intelligence</span><span class="pill">Web Build</span><span class="pill">GMB</span><span class="pill">OTAs</span><span class="pill">Hotel Alliances</span>
+          </div>
+        </div>
+        <div class="case-right">
+          <div class="case-stat"><div class="case-stat-val"><span>9.7</span>M</div><div class="case-stat-label">International tourists · Cancún 2024</div></div>
+          <div class="case-stat"><div class="case-stat-val"><span>63</span>%</div><div class="case-stat-label">Tourists from USA</div></div>
+          <div class="case-stat" style="grid-column: 1 / -1; border-right: none; border-bottom: none;"><div class="case-stat-val" style="font-size:1.3rem; color: var(--red); line-height:1.3;">Coming Soon<br>Research Phase Complete</div><div class="case-stat-label">Digital presence today: zero · Full strategy in progress</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MID CTA BANNER -->
+<div class="mid-cta fade-up">
+  <div>
+    <div class="mid-cta-text">See something that fits your business?</div>
+    <div class="mid-cta-sub">I work with a small number of clients at a time. First conversation is always free.</div>
+  </div>
+  <a href="mailto:elemental.agonzalez@gmail.com?subject=Let's Talk — From Portfolio" class="mid-cta-btn">Start the Conversation →</a>
+</div>
+
+<!-- AI AGENTS -->
+<div class="accordion-section dark" id="intel">
+  <button class="accordion-trigger" aria-expanded="false" data-target="acc-intel">
+    <div class="accordion-trigger-left">
+      <span class="accordion-cat">AI Agents</span>
+      <span class="accordion-title">Three agents.<br>Not demos.<br><span>Results.</span></span>
+    </div>
+    <div class="accordion-icon">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6L8 11L13 6" stroke="#f4f2ed" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+  </button>
+  <div class="accordion-body" id="acc-intel">
+    <div class="accordion-inner" style="background:var(--black);">
+      <p style="font-size:0.93rem;line-height:1.8;color:rgba(244,242,237,0.5);font-weight:300;margin-bottom:3rem;">I don't use AI to write posts. I build specialized agents that research, analyze, and produce executive intelligence that no traditional consultant can generate at this speed and depth.</p>
+      <div class="agents-grid">
+        <div class="agent-deep">
+          <div class="agent-deep-left">
+            <div class="agent-name"><span class="agent-dot"></span>Lalo — Commercial Intelligence</div>
+            <div class="agent-title" style="font-size:1.8rem;margin-bottom:1.5rem;">Multi-source<br>Commercial Intelligence Agent</div>
+            <p class="agent-desc" style="color:rgba(244,242,237,0.5);margin-bottom:1.25rem;">The most complex agent in the stack — months of training and iteration. Operates through a 4-layer reasoning process with 3 intermediate audits to prevent information loss between phases. Not autonomous in execution — every task requires human approval before it runs — but its reasoning is independent: it defines its own activities, anticipates human needs, and suggests next actions before being asked.</p>
+            <p class="agent-desc" style="color:rgba(244,242,237,0.5);">Uses 9 Notion databases as its operational brain: memory persists between sessions, every reasoning step is logged and easily auditable by a human. Produces dossiers, contact profiles, revenue calculations, and executive briefings with documented reasoning chains.</p>
+            <div class="agent-pills">
+              <span class="agent-pill">4-layer reasoning</span><span class="agent-pill">3 intermediate audits</span><span class="agent-pill">9 Notion databases</span><span class="agent-pill">Human approval gates</span><span class="agent-pill">12+ specialized skills</span><span class="agent-pill">Self-directed task planning</span><span class="agent-pill">Traceable reasoning</span>
+            </div>
+          </div>
+          <div class="agent-deep-right">
+            <div><div class="deep-stat-val"><span>4</span></div><div class="deep-stat-label">Reasoning layers per cycle</div></div>
+            <div><div class="deep-stat-val"><span>9</span></div><div class="deep-stat-label">Notion databases in stack</div></div>
+            <div><div class="deep-stat-val"><span>12</span>+</div><div class="deep-stat-label">Specialized skills</div></div>
+            <div>
+              <div class="deep-stack-item"><span class="deep-stack-dot"></span>Intermediate audits prevent info loss between phases</div>
+              <div class="deep-stack-item"><span class="deep-stack-dot"></span>Self-defines activities and anticipates next steps</div>
+              <div class="deep-stack-item"><span class="deep-stack-dot"></span>Human-auditable reasoning chain in Notion</div>
+              <div class="deep-stack-item"><span class="deep-stack-dot"></span>Dossiers, revenue calculations, executive briefings</div>
+            </div>
+          </div>
+        </div>
+        <div class="agent-block">
+          <div class="agent-name"><span class="agent-dot"></span>Mario — Mining Intel</div>
+          <div class="agent-title">Mining Data<br>Visualization Agent</div>
+          <p class="agent-desc">Transforms raw data from federal databases (BLM, MSHA) into animated heatmaps that make mining claim activity understandable at a glance. Adds a reasoning layer capable of identifying early indicators of activity before the exploration phase becomes public. Two published maps on LinkedIn.</p>
+          <div class="agent-metrics">
+            <div class="agent-m"><div class="agent-m-val"><span>16</span>K+</div><div class="agent-m-label">LinkedIn impressions</div></div>
+            <div class="agent-m"><div class="agent-m-val"><span>34</span></div><div class="agent-m-label">Exec reactions</div></div>
+            <div class="agent-m"><div class="agent-m-val"><span>4</span>+</div><div class="agent-m-label">Data sources crossed</div></div>
+            <div class="agent-m"><div class="agent-m-val"><span>2</span></div><div class="agent-m-label">Maps published</div></div>
+          </div>
+        </div>
+        <div class="agent-block">
+          <div class="agent-name"><span class="agent-dot"></span>Sara — ICP Analyzer</div>
+          <div class="agent-title">B2B SaaS<br>ICP Analyzer</div>
+          <p class="agent-desc">Analyzes any B2B SaaS and produces a complete ideal customer profile: who buys, why, what stops them. Output: 3-layer executive briefing ready to fuel a GTM strategy.</p>
+          <div class="agent-metrics">
+            <div class="agent-m"><div class="agent-m-val"><span>3</span>h</div><div class="agent-m-label">Build time</div></div>
+            <div class="agent-m"><div class="agent-m-val"><span>4</span></div><div class="agent-m-label">Models orchestrated</div></div>
+            <div class="agent-m"><div class="agent-m-val"><span>3</span></div><div class="agent-m-label">Output layers</div></div>
+            <div class="agent-m"><div class="agent-m-val">GTM</div><div class="agent-m-label">Decision enabled</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="accordion-section" id="services">
+  <button class="accordion-trigger" aria-expanded="false" data-target="acc-services">
+    <div class="accordion-trigger-left">
+      <span class="accordion-cat">Services</span>
+      <span class="accordion-title">I build <span>systems</span> that generate strategy.</span>
+    </div>
+    <div class="accordion-icon">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6L8 11L13 6" stroke="#16150f" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+  </button>
+  <div class="accordion-body" id="acc-services">
+    <div class="accordion-inner">
+      <div class="services-grid">
+        <div class="svc">
+          <div class="svc-num">01</div>
+          <div class="svc-name">Market Intelligence with AI Agents</div>
+          <p class="svc-desc">I research your market, competitors, and opportunities using agents that cross dozens of sources simultaneously. An executive briefing with classified signals — in 48 hours, not 3 weeks.</p>
+          <div class="svc-bar"></div>
+        </div>
+        <div class="svc">
+          <div class="svc-num">02</div>
+          <div class="svc-name">Full-Stack Marketing Systems</div>
+          <p class="svc-desc">Identity, paid media, analytics, content strategy, OTA optimization, CRM integration — in English and Spanish. I build the complete marketing infrastructure a business needs to capture and convert demand.</p>
+          <div class="svc-bar"></div>
+        </div>
+        <div class="svc">
+          <div class="svc-num">03</div>
+          <div class="svc-name">Operations &amp; Marketing Transformation</div>
+          <p class="svc-desc">I map what needs to improve and build the system to make it real. Workflows, dashboards, processes. Visible results in 30 days with systems your team can operate independently — with strategic oversight, not micromanagement.</p>
+          <div class="svc-bar"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="accordion-section off-bg" id="process">
+  <button class="accordion-trigger" aria-expanded="false" data-target="acc-process">
+    <div class="accordion-trigger-left">
+      <span class="accordion-cat">Process</span>
+      <span class="accordion-title">How I <span>work</span></span>
+    </div>
+    <div class="accordion-icon">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6L8 11L13 6" stroke="#16150f" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+  </button>
+  <div class="accordion-body" id="acc-process">
+    <div class="accordion-inner">
+      <div class="process-steps">
+        <div class="process-step"><div class="step-n">01 — Diagnosis</div><div class="step-t">I understand before I propose</div><p class="step-d">Free 45-minute first session. No selling. I map your situation and tell you exactly what to attack first.</p></div>
+        <div class="process-step"><div class="step-n">02 — Plan</div><div class="step-t">A roadmap, not a presentation</div><p class="step-d">Deliverable in 48 hours. Clear priorities, real dates, defined success metrics.</p></div>
+        <div class="process-step"><div class="step-n">03 — Execution</div><div class="step-t">I do the work, not supervise it</div><p class="step-d">I build the systems, run the campaigns, measure every week. Monthly report with real numbers.</p></div>
+        <div class="process-step"><div class="step-n">04 — Scale</div><div class="step-t">Your team runs the system</div><p class="step-d">The goal: systems your team can operate with strategic oversight — not constant supervision. I build it, train it, and step into an advisory role.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BIG COMPANIES -->
+<div class="accordion-section dark" id="big-companies">
+  <button class="accordion-trigger" aria-expanded="false" data-target="acc-big">
+    <div class="accordion-trigger-left">
+      <span class="accordion-cat">Big Companies</span>
+      <span class="accordion-title">The other<br>school.<br><span>Global scale.</span></span>
+    </div>
+    <div class="accordion-icon">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6L8 11L13 6" stroke="#f4f2ed" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+  </button>
+  <div class="accordion-body" id="acc-big">
+    <div class="accordion-inner" style="background:var(--black);">
+      <p style="font-size:0.93rem;line-height:1.8;color:rgba(244,242,237,0.5);font-weight:300;margin-bottom:3rem;">Working for a large company isn't for everyone — but it's something you should give yourself the chance to do at least once in your career. You become a small gear in a giant clock. You're important, but you're part of a very large team — and that teaches you to understand the scale and impact of your work. Part humility, part belonging to something that matters.</p>
+      <div class="bc-grid">
+        <div class="bc-card">
+          <div class="bc-company">IBM · North American Operations</div>
+          <div class="bc-role">Problem Resolution &amp; Cross-Team Support</div>
+          <p class="bc-desc">Part of a problem resolution team that gave support to other internal teams. It taught me that every large organization needs people trained specifically to solve other people's problems — specialists who are agile, focused, and available. You learn to understand that being an expert in a narrow area is a structural need, not a limitation.</p>
+        </div>
+        <div class="bc-card">
+          <div class="bc-company">Sanmina · Manufacturing &amp; Client Operations</div>
+          <div class="bc-role">Client Logistics &amp; AI-Powered Process Automation</div>
+          <p class="bc-desc">Managed client logistics for new and existing accounts during site visits — working alongside Engineers, Managers, and VPs. I built tools using AI that automated work processes and integrated with the Google ecosystem, allowing me to do more with less. I developed a Looker Studio system to track accounts, manage logistics, and present information clearly for the whole team. I learned that you must take accountability for the entire process you're part of — and that coherence from marketing to production floor is what defines a serious company.</p>
+        </div>
+        <div class="bc-closing">
+          <strong>What these experiences gave me:</strong> the ability to operate inside complex systems, understand chain accountability, build automation tools under real constraints, and recognize that scale is a discipline — not just a size. I'm grateful for the opportunity both companies gave me.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BUSINESS DEVELOPMENT -->
+<div class="accordion-section" id="biz-dev">
+  <button class="accordion-trigger" aria-expanded="false" data-target="acc-biz">
+    <div class="accordion-trigger-left">
+      <span class="accordion-cat">Business Development</span>
+      <span class="accordion-title">Running a<br>business<br><span>teaches</span><br>everything.</span>
+    </div>
+    <div class="accordion-icon">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6L8 11L13 6" stroke="#16150f" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+  </button>
+  <div class="accordion-body" id="acc-biz">
+    <div class="accordion-inner">
+      <div class="biz-dev-inner">
+        <div class="biz-dev-left">
+          <p>When marketing, operations, and AI converge in a real business, the results are differentiated. If you want to talk about this, I'm happy to.</p>
+          <div class="biz-dev-topics">
+            <span class="biz-dev-topic">Operations Management</span><span class="biz-dev-topic">Financial Goals</span><span class="biz-dev-topic">Team Management</span><span class="biz-dev-topic">Customer Satisfaction</span><span class="biz-dev-topic">Inventory Optimization</span><span class="biz-dev-topic">AI + Business</span>
+          </div>
+        </div>
+        <div class="biz-dev-right">
+          <p>As a business owner, I had the opportunity to learn about the core operational areas present in most small businesses — and that also exist in large companies, just at a different scale. I'm talking about operations management, people management, setting financial and operational goals, customer satisfaction and service, inventory and purchasing optimization, and more.</p>
+          <p>Sometimes this knowledge comes through a university degree in business or administration. But direct, real experience running a business produces the same concepts — and with a different kind of depth. When you're responsible for the whole thing, you understand why each part matters.</p>
+          <p>When this is combined with marketing and artificial intelligence, you can achieve something important and differentiated in your business. The decisions become faster, the systems more reliable, and the results more measurable.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<div class="accordion-section off-bg" id="certs">
+  <button class="accordion-trigger" aria-expanded="false" data-target="acc-certs">
+    <div class="accordion-trigger-left">
+      <span class="accordion-cat">Certifications</span>
+      <span class="accordion-title">Continuous <span>learning.</span></span>
+    </div>
+    <div class="accordion-icon">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 6L8 11L13 6" stroke="#16150f" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+  </button>
+  <div class="accordion-body" id="acc-certs">
+    <div class="accordion-inner">
+      <div class="certs-grid">
+        <div class="cert-card"><div class="cert-issuer">Microsoft &amp; LinkedIn</div><div class="cert-name">Fundamentos profesionales del análisis de datos</div><div class="cert-date">Jun 2024</div></div>
+        <div class="cert-card"><div class="cert-issuer">LinkedIn</div><div class="cert-name">Data Science: Conceptos básicos</div><div class="cert-date">Jun 2024</div></div>
+        <div class="cert-card"><div class="cert-issuer">LinkedIn</div><div class="cert-name">Análisis de datos: fundamentos</div><div class="cert-date">Jun 2024</div></div>
+        <div class="cert-card"><div class="cert-issuer">HubSpot Academy</div><div class="cert-name">Certificado en Inbound Marketing</div><div class="cert-date">Jun 2024</div></div>
+        <div class="cert-card"><div class="cert-issuer">LinkedIn</div><div class="cert-name">Introducción a las habilidades profesionales en análisis de datos</div><div class="cert-date">Jun 2024</div></div>
+        <div class="cert-card"><div class="cert-issuer">MinnaLearn</div><div class="cert-name">Elements of AI</div><div class="cert-date">May 2024</div></div>
+        <div class="cert-card"><div class="cert-issuer">OpenClassrooms</div><div class="cert-name">Agile Project Management and Scrum</div><div class="cert-date">Jun 2023</div></div>
+        <div class="cert-card"><div class="cert-issuer">Google Digital Academy</div><div class="cert-name">Google My Business</div><div class="cert-date">Jun 2023</div></div>
+        <div class="cert-card"><div class="cert-issuer">Google Digital Garage</div><div class="cert-name">The Fundamentals of Digital Marketing</div><div class="cert-date">Jun 2023</div></div>
+        <div class="cert-card"><div class="cert-issuer">Instituto de Tráfico Online</div><div class="cert-name">Master en Tráfico Digital</div><div class="cert-date">Aug 2020</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-left fade-up">
+    <div class="section-label">Contact</div>
+    <h2>Ready to find your <span>next opportunity?</span></h2>
+    <p>If you have a real business and want measurable results, I'd love to hear what you're working on.</p>
+    <div class="contact-btns">
+      <a href="https://www.linkedin.com/in/arturo-gonzalezgarcia-marketing" class="contact-btn" target="_blank">
+        <span class="contact-btn-type">LinkedIn</span>
+        <span class="contact-btn-val">arturo-gonzalezgarcia-marketing</span>
+      </a>
+      <a href="mailto:elemental.agonzalez@gmail.com" class="contact-btn">
+        <span class="contact-btn-type">Mail</span>
+        <span class="contact-btn-val">elemental.agonzalez@gmail.com</span>
+      </a>
+    </div>
+  </div>
+  <div class="contact-right fade-up">
+    <div class="form-title">Tell me about your business</div>
+    <div class="form-sub">I'll get back to you the same day.</div>
+    <div class="form-group">
+      <label class="form-label">Your name</label>
+      <input type="text" class="form-input" placeholder="Full name">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Your business</label>
+      <input type="text" class="form-input" placeholder="Type of business and location">
+    </div>
+    <div class="form-group">
+      <label class="form-label">What's your biggest challenge?</label>
+      <textarea class="form-input" placeholder="Tell me briefly..."></textarea>
+    </div>
+    <button class="form-submit" onclick="window.location.href='mailto:elemental.agonzalez@gmail.com?subject=Let\'s Talk — From Portfolio'">Send Message →</button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-name">Arturo González García</div>
+      <div class="footer-role">Business &amp; Marketing Development · AI Systems Builder · Operations</div>
+    </div>
+    <div class="footer-links">
+      <a href="#about" class="footer-link">About</a>
+      <a href="#work" class="footer-link">Work</a>
+      <a href="#intel" class="footer-link">Agents</a>
+      <a href="#services" class="footer-link">Services</a>
+      <a href="blog.html" class="footer-link">Blog</a>
+      <a href="mailto:elemental.agonzalez@gmail.com" class="footer-link">Email</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 · Arturo González García · México · Remote global</div>
+    <a href="mailto:elemental.agonzalez@gmail.com?subject=Let's Talk — From Portfolio" class="footer-cta">Let's Talk →</a>
+  </div>
+</footer>
+
+<script>
+// ── Fade in ──
+const fades = document.querySelectorAll('.fade-up');
+const fadeObs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 70);
+      fadeObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.06 });
+fades.forEach(el => fadeObs.observe(el));
+
+// ── Count-up ──
+function animateCount(el) {
+  const target = parseFloat(el.dataset.target);
+  const decimals = parseInt(el.dataset.decimal || 0);
+  const duration = 1600;
+  const start = performance.now();
+  function tick(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    const val = target * ease;
+    el.textContent = decimals > 0 ? val.toFixed(decimals) : Math.floor(val);
+    if (progress < 1) requestAnimationFrame(tick);
+    else el.textContent = decimals > 0 ? target.toFixed(decimals) : target;
+  }
+  requestAnimationFrame(tick);
+}
+const countObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { animateCount(e.target); countObs.unobserve(e.target); }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.count-up').forEach(el => countObs.observe(el));
+
+// ── Smooth scroll ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+// ── Accordion ──
+document.querySelectorAll('.accordion-trigger').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const targetId = btn.dataset.target;
+    const body = document.getElementById(targetId);
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+    // Close all
+    document.querySelectorAll('.accordion-trigger').forEach(b => b.setAttribute('aria-expanded', 'false'));
+    document.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+
+    // Toggle clicked
+    if (!isOpen) {
+      btn.setAttribute('aria-expanded', 'true');
+      body.classList.add('open');
+      // Trigger fade-up animations inside
+      setTimeout(() => {
+        body.querySelectorAll('.fade-up').forEach((el, i) => {
+          setTimeout(() => el.classList.add('visible'), i * 60);
+        });
+      }, 100);
+    }
+  });
+});
+
+// ── Hamburger menu ──
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobile-menu');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+
+// Close mobile menu when a link is clicked
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  });
+});
+</script>
+</body>
+</html>
