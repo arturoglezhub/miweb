@@ -219,9 +219,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; padding: 0.9rem 
 .step-n { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.18em; color: var(--red); margin-bottom: 1rem; }
 .step-t { font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.75rem; line-height: 1.3; }
 .step-d { font-size: 0.82rem; line-height: 1.8; color: var(--dim); font-weight: 300; }
-@media (max-width: 768px) {
-  .process-steps { grid-template-columns: 1fr; }
-}
+
 
 /* BIG COMPANIES — inside dark accordion */
 .bc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.07); }
@@ -430,7 +428,7 @@ footer { padding: 2.5rem 3rem; border-top: 1px solid var(--border); background: 
 <!-- ── ACCORDION SECTIONS ── -->
 
 <!-- PROCESS -->
-<div class="accordion-section off-bg" id="process">
+<div class="accordion-section off-bg fade-up" id="process">
   <button class="accordion-trigger" aria-expanded="false" data-target="acc-process">
     <div class="accordion-trigger-left">
       <span class="accordion-cat">Process</span>
@@ -454,7 +452,7 @@ footer { padding: 2.5rem 3rem; border-top: 1px solid var(--border); background: 
 
 
 <!-- SERVICES -->
-<div class="accordion-section" id="services">
+<div class="accordion-section fade-up" id="services">
   <button class="accordion-trigger" aria-expanded="false" data-target="acc-services">
     <div class="accordion-trigger-left">
       <span class="accordion-cat">Services</span>
@@ -569,7 +567,7 @@ footer { padding: 2.5rem 3rem; border-top: 1px solid var(--border); background: 
 
 
 <!-- WORK -->
-<div class="accordion-section" id="work">
+<div class="accordion-section fade-up" id="work">
   <button class="accordion-trigger" aria-expanded="false" data-target="acc-work">
     <div class="accordion-trigger-left">
       <span class="accordion-cat">Work</span>
@@ -704,7 +702,7 @@ footer { padding: 2.5rem 3rem; border-top: 1px solid var(--border); background: 
 
 
 <!-- BIG COMPANIES -->
-<div class="accordion-section dark" id="big-companies">
+<div class="accordion-section dark fade-up" id="big-companies">
   <button class="accordion-trigger" aria-expanded="false" data-target="acc-big">
     <div class="accordion-trigger-left">
       <span class="accordion-cat">Big Companies</span>
@@ -737,7 +735,7 @@ footer { padding: 2.5rem 3rem; border-top: 1px solid var(--border); background: 
 </div>
 
 <!-- BUSINESS DEVELOPMENT -->
-<div class="accordion-section" id="biz-dev">
+<div class="accordion-section fade-up" id="biz-dev">
   <button class="accordion-trigger" aria-expanded="false" data-target="acc-biz">
     <div class="accordion-trigger-left">
       <span class="accordion-cat">Business Development</span>
@@ -767,7 +765,7 @@ footer { padding: 2.5rem 3rem; border-top: 1px solid var(--border); background: 
 </div>
 
 <!-- CERTIFICATIONS -->
-<div class="accordion-section off-bg" id="certs">
+<div class="accordion-section off-bg fade-up" id="certs">
   <button class="accordion-trigger" aria-expanded="false" data-target="acc-certs">
     <div class="accordion-trigger-left">
       <span class="accordion-cat">Certifications</span>
