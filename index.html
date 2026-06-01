@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,6 +30,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .mono .mk { width: 26px; height: 26px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-weight: 600; font-size: 0.95rem; border-radius: 50%; }
 .mono .nm { font-weight: 600; font-size: 0.92rem; letter-spacing: 0.02em; }
 .topmeta { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(28,27,22,0.55); }
+.topright { display: flex; align-items: center; gap: 1.1rem; }
+.langtoggle { display: inline-flex; border: 1.5px solid var(--ink); border-radius: 100px; overflow: hidden; }
+.langtoggle button { font-size: 0.6rem; letter-spacing: 0.1em; font-weight: 600; padding: 0.34rem 0.62rem; color: var(--ink); background: transparent; transition: background 0.2s, color 0.2s; }
+.langtoggle button.active { background: var(--ink); color: var(--paper); }
 
 /* ===== poster grid ===== */
 .poster { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 1fr); gap: 0.55rem; padding: 0.5rem 2.2rem 2.2rem; height: calc(100vh - 64px); min-height: 560px;
@@ -333,6 +337,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   .v-inner { padding: 2.2rem 1.2rem 4rem; }
 }
 @media (prefers-reduced-motion: reduce) { .tile { animation: none; opacity: 1; transform: none; } .viewer, .v-inner { transition: none !important; } }
+@media (max-width: 760px){
+  .area-journal .geo > .g { top: 14px !important; bottom: auto !important; transform: none !important; }
+  .topright { gap: 0.6rem; } .topmeta { display: none; }
+}
 </style>
 </head>
 <body>
@@ -340,7 +348,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 <!-- TOP BAR -->
 <div class="topbar">
   <div class="mono"><span class="mk">A</span><span class="nm">Arturo González</span></div>
-  <div class="topmeta">Personal Web 2026</div>
+  <div class="topright">
+    <span class="topmeta" data-i18n="ui.topmeta">Personal Web 2026</span>
+    <div class="langtoggle" id="langtoggle"><button data-lang="en" class="active">EN</button><button data-lang="es">ES</button></div>
+  </div>
 </div>
 
 <!-- POSTER GRID -->
@@ -353,10 +364,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     </div>
     <div class="id-mark"><span class="f-red blob2"></span><span class="f-ochre circle"></span><span class="f-blue tri"></span></div>
     <div class="id-title">
-      <h1>Marketing,<br>AI&#8209;intelligence<br>&amp; ops.</h1>
-      <div class="role">Business &amp; Marketing Development · AI Systems</div>
+      <h1 data-i18n="ui.h1">Marketing,<br>AI&#8209;intelligence<br>&amp; ops.</h1>
+      <div class="role" data-i18n="ui.role">Business &amp; Marketing Development · AI Systems</div>
     </div>
-    <div class="id-foot"><span><b>10+</b> Years</span><span><b>5+</b> Sectors</span><span><b>3</b> AI Agents</span><span>México · Remote</span></div>
+    <div class="id-foot"><span data-i18n="ui.f1"><b>10+</b> Years</span><span data-i18n="ui.f2"><b>5+</b> Sectors</span><span data-i18n="ui.f3"><b>3</b> AI Agents</span><span data-i18n="ui.f4">México · Remote</span></div>
   </div>
 
   <!-- AGENTS -->
@@ -373,7 +384,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       </div>
     </div>
     <div class="t-num">03</div>
-    <div><div class="t-name">AI Agents</div><div class="t-hint">Three in production — not demos</div></div>
+    <div><div class="t-name" data-i18n="t.agents">AI Agents</div><div class="t-hint" data-i18n="h.agents">Three in production — not demos</div></div>
   </button>
 
   <!-- SERVICES -->
@@ -386,7 +397,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       </div>
     </div>
     <div class="t-num">02</div>
-    <div><div class="t-name">Services</div></div>
+    <div><div class="t-name" data-i18n="t.serv">Services</div></div>
   </button>
 
   <!-- WORK -->
@@ -400,7 +411,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       </div>
     </div>
     <div class="t-num">04</div>
-    <div><div class="t-name">Work</div></div>
+    <div><div class="t-name" data-i18n="t.work">Work</div></div>
   </button>
 
   <!-- ABOUT -->
@@ -419,7 +430,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       </div>
     </div>
     <div class="t-num">01</div>
-    <div><div class="t-name">About</div><div class="t-hint">A decade across 5+ sectors</div></div>
+    <div><div class="t-name" data-i18n="t.about">About</div><div class="t-hint" data-i18n="h.about">A decade across 5+ sectors</div></div>
   </button>
 
   <!-- PROCESS -->
@@ -433,7 +444,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       </div>
     </div>
     <div class="t-num">05</div>
-    <div><div class="t-name">Process</div></div>
+    <div><div class="t-name" data-i18n="t.proc">Process</div></div>
   </button>
 
   <!-- BIG CO -->
@@ -446,7 +457,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       </div>
     </div>
     <div class="t-num">06</div>
-    <div><div class="t-name">Big Co.</div></div>
+    <div><div class="t-name" data-i18n="t.bigco">Big Co.</div></div>
   </button>
 
   <!-- CONTACT -->
@@ -459,7 +470,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       </div>
     </div>
     <div class="t-num">08</div>
-    <div><div class="t-name">Contact</div><div class="t-hint">First conversation is free</div></div>
+    <div><div class="t-name" data-i18n="t.contact">Contact</div><div class="t-hint" data-i18n="h.contact">First conversation is free</div></div>
   </button>
 
   <!-- CERTS -->
@@ -473,7 +484,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       </div>
     </div>
     <div class="t-num">07</div>
-    <div><div class="t-name">Certifications</div></div>
+    <div><div class="t-name" data-i18n="t.certs">Certifications</div></div>
   </button>
 
   <!-- JOURNAL (links to blog) -->
@@ -488,14 +499,14 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
       </div>
     </div>
     <div class="t-num">09</div>
-    <div><div class="t-name">Journal</div><div class="t-hint">Notes from the field</div></div>
+    <div><div class="t-name" data-i18n="t.journal">Journal</div><div class="t-hint" data-i18n="h.journal">Notes from the field</div></div>
   </a>
 
 </main>
 
 <div class="posterfoot">
   <span>© 2026 Arturo González</span>
-  <span>Business &amp; Marketing Development · AI Systems · México</span>
+  <span data-i18n="ui.pf">Business &amp; Marketing Development · AI Systems · México</span>
 </div>
 
 <div class="enterhint" id="enterhint"><span class="dotp"></span></div>
@@ -503,7 +514,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 <!-- VIEWER -->
 <div class="viewer" id="viewer">
   <div class="v-head">
-    <button class="back" id="back"><span class="arr">←</span> Back</button>
+    <button class="back" id="back"><span class="arr">←</span> <span data-i18n="ui.back">Back</span></button>
     <div class="v-head-id"><span class="v-head-num" id="vNum">00</span><span class="v-head-title" id="vTitle">Section</span></div>
     <span class="v-accent" id="vAccent"></span>
   </div>
@@ -721,7 +732,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
         <div class="prose"><p>I'd love to hear what you're working on. The first conversation is always free — no selling, just a clear read on what to attack first.</p></div>
         <div style="margin-top:1.6rem;">
           <a href="https://www.linkedin.com/in/arturo-gonzalezgarcia-marketing" target="_blank" class="cbtn"><span class="ct">LinkedIn</span><span class="cv">arturo-gonzalezgarcia-marketing</span><span class="ca">→</span></a>
-          <a href="mailto:elemental.agonzalez@gmail.com" class="cbtn"><span class="ct">Mail</span><span class="cv">elemental.agonzalez@gmail.com</span><span class="ca">→</span></a>
+          <a href="/cdn-cgi/l/email-protection#95f0f9f0f8f0fbe1f4f9bbf4f2fafbeff4f9f0efd5f2f8f4fcf9bbf6faf8" class="cbtn"><span class="ct">Mail</span><span class="cv"><span class="__cf_email__" data-cfemail="72171e171f171c06131e5c13151d1c08131e170832151f131b1e5c111d1f">[email&#160;protected]</span></span><span class="ca">→</span></a>
         </div>
       </div>
       <div class="cmeta">
@@ -735,7 +746,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const META = {
   about:   { num:'01', title:'About',          accent:'var(--blue)' },
   serv:    { num:'02', title:'Services',        accent:'var(--ochre)' },
@@ -772,13 +783,7 @@ function openTile(tile){
   viewer.style.setProperty('--cy', c.y + 'px');
 
   // load content + header
-  const tpl = document.querySelector('template[data-tpl="'+key+'"]');
-  vInner.innerHTML = '';
-  vInner.appendChild(tpl.content.cloneNode(true));
-  vNum.textContent = meta.num;
-  vTitle.textContent = meta.title;
-  vAccent.style.background = meta.accent;
-  viewer.querySelector('.v-body').scrollTop = 0;
+  renderPanel(key);
 
   viewer.classList.add('show');
   void viewer.offsetWidth;                       // reflow so clip-path animates
@@ -861,5 +866,6 @@ if (!reduce) {
   setInterval(beat, 2600);
 }
 </script>
+<script src="i18n.js"></script>
 </body>
 </html>
