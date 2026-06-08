@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arturo González García — Contacto</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --paper: #fbfaf6;
+  --paper2: #eceadf;
+  --ink: #1d1c17;
+  --red: #c0472e;
+  --ochre: #d99f2b;
+  --blue: #2f5488;
+  --green: #356a4d;
+  --mat: #f7f6f3;
+  --line: rgba(29,28,23,0.16);
+  --line2: rgba(29,28,23,0.28);
+  --soft: rgba(29,28,23,0.7);
+  --dim: rgba(29,28,23,0.5);
+  --wa: #1f8a4c;
+}
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { background: var(--mat); color: var(--ink); font-family: 'Jost', sans-serif; line-height: 1.6; min-height: 100svh; display: flex; flex-direction: column; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+::selection { background: var(--ink); color: var(--paper); }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+a { color: inherit; text-decoration: none; }
+.serif { font-family: 'Newsreader', serif; }
+
+/* background geometry */
+.bg-geo { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.bg-geo .g { position: absolute; opacity: 0.06; }
+.circle { border-radius: 50%; }
+.semi-b { border-radius: 0 0 1000px 1000px / 0 0 1000px 1000px; }
+.semi-t { border-radius: 1000px 1000px 0 0 / 1000px 1000px 0 0; }
+.tri { clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.q-tl { border-radius: 100% 0 0 0; }
+.f-ink{background:var(--ink)} .f-red{background:var(--red)} .f-ochre{background:var(--ochre)}
+.f-blue{background:var(--blue)} .f-green{background:var(--green)} .f-paper{background:var(--paper)}
+
+/* ===== top bar ===== */
+.topbar { position: relative; z-index: 10; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 1.6rem; }
+.mono { display: flex; align-items: center; gap: 0.6rem; }
+.mono .mk { width: 28px; height: 28px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-weight: 600; font-size: 1rem; border-radius: 50%; }
+.mono .nm { font-weight: 600; font-size: 0.78rem; letter-spacing: 0.02em; }
+.langtoggle { display: inline-flex; border: 1.5px solid var(--ink); border-radius: 100px; overflow: hidden; }
+.langtoggle button { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; padding: 0.42rem 0.8rem; transition: 0.2s; color: var(--ink); }
+.langtoggle button.active { background: var(--ink); color: var(--paper); }
+
+/* ===== card ===== */
+.wrap { position: relative; z-index: 5; flex: 1; display: flex; align-items: center; justify-content: center; padding: 1.5rem 1.4rem 2.5rem; }
+.card { width: 100%; max-width: 430px; background: var(--paper); border: 1.5px solid var(--ink); position: relative; }
+
+/* header band with photo */
+.card-top { position: relative; padding: 2.2rem 2rem 1.6rem; border-bottom: 1.5px solid var(--ink); overflow: hidden; }
+.card-top .deco { position: absolute; top: 0; right: 0; display: flex; }
+.card-top .deco span { width: 26px; height: 26px; }
+.portrait-row { display: flex; align-items: center; gap: 1.3rem; }
+.portrait { width: 104px; height: 104px; flex-shrink: 0; border: 1.5px solid var(--ink); border-radius: 50%; object-fit: cover; filter: grayscale(100%) contrast(1.04); background: var(--paper2); }
+.id-block { min-width: 0; }
+.eyer { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); font-weight: 600; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+.eyer .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--red); }
+.card-top h1 { font-size: 1.5rem; font-weight: 600; line-height: 1.02; letter-spacing: -0.02em; }
+.card-top .role { font-size: 0.7rem; letter-spacing: 0.04em; color: var(--soft); margin-top: 0.45rem; line-height: 1.4; }
+
+/* body */
+.card-body { padding: 1.8rem 2rem 2rem; }
+.bio { font-family: 'Newsreader', serif; font-size: 1.02rem; line-height: 1.6; color: var(--ink); opacity: 0.9; margin-bottom: 1.5rem; }
+.meta { display: flex; flex-direction: column; margin-bottom: 1.7rem; }
+.meta .row { display: flex; align-items: center; gap: 0.95rem; padding: 0.78rem 0; border-bottom: 1px solid var(--line); }
+.meta .row:first-child { border-top: 1px solid var(--line); }
+.meta .mk2 { width: 16px; height: 16px; flex-shrink: 0; }
+.meta .k { flex-shrink: 0; width: 5.2rem; font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
+.meta .v { margin-left: auto; text-align: right; font-size: 0.86rem; font-weight: 500; letter-spacing: -0.005em; }
+
+/* actions */
+.actions { display: flex; flex-direction: column; gap: 0.7rem; }
+.btn { display: flex; align-items: center; gap: 0.9rem; padding: 1rem 1.2rem; border: 1.5px solid var(--ink); transition: transform 0.2s, background 0.2s, color 0.2s; }
+.btn .ic { width: 22px; height: 22px; flex-shrink: 0; display: grid; place-items: center; }
+.btn .ic svg { width: 100%; height: 100%; }
+.btn .lab { display: flex; flex-direction: column; line-height: 1.2; }
+.btn .lab b { font-size: 0.9rem; font-weight: 600; letter-spacing: 0.01em; }
+.btn .lab small { font-size: 0.66rem; color: var(--soft); font-weight: 400; }
+.btn .arr { margin-left: auto; font-size: 0.9rem; opacity: 0.5; transition: transform 0.25s; }
+.btn:hover { transform: translateX(4px); }
+.btn:hover .arr { transform: translateX(3px); opacity: 1; }
+.btn-wa { background: var(--green); color: var(--paper); border-color: var(--green); }
+.btn-wa .lab small { color: rgba(239,231,214,0.7); }
+.btn-wa:hover { background: #2e7d4f; }
+.btn-wa svg { fill: var(--paper); }
+.btn-li:hover { background: var(--blue); color: var(--paper); border-color: var(--blue); }
+.btn-li:hover .lab small { color: rgba(239,231,214,0.7); }
+.btn-li svg { fill: currentColor; }
+.btn-mail:hover { background: var(--ink); color: var(--paper); }
+.btn-mail:hover .lab small { color: rgba(239,231,214,0.7); }
+.btn-site:hover { background: var(--red); color: var(--paper); border-color: var(--red); }
+.btn-site:hover .lab small { color: rgba(239,231,214,0.7); }
+.btn-site .ic { font-weight: 700; font-size: 1rem; }
+
+.card-foot { padding: 1rem 2rem; border-top: 1.5px solid var(--ink); display: flex; justify-content: space-between; align-items: center; }
+.card-foot .loc { font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); }
+.card-foot .glyph { display: flex; gap: 0.3rem; }
+.card-foot .glyph span { width: 11px; height: 11px; }
+
+footer { position: relative; z-index: 5; text-align: center; padding: 0 1.4rem 1.6rem; }
+footer .fc { font-size: 0.56rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--dim); }
+
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(.2,.7,.2,1); }
+.reveal.vis { opacity: 1; transform: none; }
+
+@media (max-width: 420px) {
+  .portrait-row { gap: 1rem; }
+  .portrait { width: 88px; height: 88px; }
+  .card-top h1 { font-size: 1.3rem; }
+  .card-top, .card-body, .card-foot { padding-left: 1.4rem; padding-right: 1.4rem; }
+}
+@media (prefers-reduced-motion: reduce) { .reveal { transition: none; opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+
+<div class="bg-geo">
+  <div class="g circle f-blue" style="width:300px;height:300px;top:-90px;left:-110px"></div>
+  <div class="g tri f-red" style="width:200px;height:200px;bottom:-40px;right:-50px"></div>
+  <div class="g semi-t f-ochre" style="width:240px;height:120px;bottom:14%;left:-90px"></div>
+  <div class="g circle f-green" style="width:120px;height:120px;top:18%;right:8%"></div>
+</div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="mono"><span class="mk">A</span><span class="nm">Arturo González García</span></div>
+  <div class="langtoggle" role="group" aria-label="Language">
+    <button data-lang="es" class="active" onclick="setLang('es')">ES</button>
+    <button data-lang="en" onclick="setLang('en')">EN</button>
+  </div>
+</div>
+
+<!-- CARD -->
+<div class="wrap">
+  <div class="card reveal">
+    <div class="card-top">
+      <div class="deco"></div>
+      <div class="portrait-row">
+        <img src="Arturo_Gonzalez_photo.png" class="portrait" alt="Arturo González García">
+        <div class="id-block">
+          <div class="eyer"><span class="dot"></span><span data-i18n="badge">Disponible para proyectos</span></div>
+          <h1>Arturo González García</h1>
+          <div class="role" data-i18n="role">Desarrollo de Negocio y Marketing · Sistemas de IA</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <p class="bio" data-i18n="bio">Construyo inteligencia de mercado con IA para que los negocios encuentren nuevos clientes — sin depender de anuncios ni inflar el presupuesto. Una década operando en 5+ sectores.</p>
+
+      <div class="meta">
+        <div class="row"><span class="k" data-i18n="m1k">Ubicación</span><span class="v" data-i18n="m1v">México · Remoto global</span></div>
+        <div class="row"><span class="k" data-i18n="m2k">Idiomas</span><span class="v">Español · English</span></div>
+        <div class="row"><span class="k" data-i18n="m3k">Enfoque</span><span class="v" data-i18n="m3v">Marketing · IA · Operaciones</span></div>
+        <div class="row"><span class="k" data-i18n="m4k">Respuesta</span><span class="v" data-i18n="m4v">En menos de 24 h</span></div>
+      </div>
+
+      <div class="actions">
+        <a class="btn btn-wa" href="https://wa.me/527295676764?text=Hola%20Arturo%2C%20vi%20tu%20tarjeta%20de%20contacto" target="_blank" rel="noopener">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.86 9.86 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.2 0 4.27.86 5.83 2.41a8.2 8.2 0 0 1 2.42 5.84c0 4.54-3.7 8.24-8.25 8.24a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24Zm-3.2 4.43c-.15 0-.4.06-.61.28-.21.22-.8.79-.8 1.92 0 1.13.82 2.22.94 2.38.12.15 1.6 2.44 3.87 3.33 1.89.74 2.27.6 2.68.56.41-.04 1.33-.54 1.51-1.07.19-.52.19-.97.13-1.07-.06-.09-.21-.15-.44-.27-.23-.12-1.33-.66-1.54-.73-.21-.08-.36-.12-.5.11-.15.22-.58.72-.71.87-.13.15-.26.17-.49.06-.23-.12-.97-.36-1.85-1.14-.68-.61-1.14-1.36-1.28-1.59-.13-.23-.01-.35.1-.47.1-.1.23-.26.34-.4.12-.13.15-.22.23-.37.08-.15.04-.28-.02-.4-.06-.11-.5-1.24-.7-1.69-.18-.44-.37-.38-.5-.39-.13 0-.28-.01-.43-.01Z"/></svg></span>
+          <span class="lab"><b>WhatsApp</b><small data-i18n="wa">Escríbeme · +52 729 567 6764</small></span>
+          <span class="arr">→</span>
+        </a>
+
+        <a class="btn btn-li" href="https://www.linkedin.com/in/arturo-gonzalezgarcia-marketing" target="_blank" rel="noopener">
+          <span class="ic"><svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></span>
+          <span class="lab"><b>LinkedIn</b><small data-i18n="li">arturo-gonzalezgarcia-marketing</small></span>
+          <span class="arr">→</span>
+        </a>
+
+        <a class="btn btn-mail" href="/cdn-cgi/l/email-protection#6401080109010a1005084a05030b0a1e0508011e240309050d084a070b09">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="4.5" width="19" height="15" rx="1.5"/><path d="m3 6 9 6 9-6"/></svg></span>
+          <span class="lab"><b data-i18n="mailt">Correo</b><small><span class="__cf_email__" data-cfemail="1c797079717972687d70327d7b7372667d7079665c7b717d7570327f7371">[email&#160;protected]</span></small></span>
+          <span class="arr">→</span>
+        </a>
+
+        <a class="btn btn-site" href="index.html">
+          <span class="ic">◆</span>
+          <span class="lab"><b data-i18n="sitet">Ver portafolio</b><small data-i18n="sites">Trabajo, agentes de IA y casos</small></span>
+          <span class="arr">→</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="card-foot">
+      <span class="loc" data-i18n="foot">Encantado de conocerte</span>
+    </div>
+  </div>
+</div>
+
+<footer><div class="fc">© 2026 Arturo González García · México</div></footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const I18N = {
+  es: {
+    badge: 'Disponible para proyectos',
+    role: 'Desarrollo de Negocio y Marketing · Sistemas de IA',
+    bio: 'Construyo inteligencia de mercado con IA para que los negocios encuentren nuevos clientes — sin depender de anuncios ni inflar el presupuesto. Una década operando en 5+ sectores.',
+    m1k: 'Ubicación', m1v: 'México · Remoto global',
+    m2k: 'Idiomas',
+    m3k: 'Enfoque', m3v: 'Marketing · IA · Operaciones',
+    m4k: 'Respuesta', m4v: 'En menos de 24 h',
+    wa: 'Escríbeme · +52 729 567 6764',
+    li: 'arturo-gonzalezgarcia-marketing',
+    mailt: 'Correo',
+    sitet: 'Ver portafolio', sites: 'Trabajo, agentes de IA y casos',
+    foot: 'Encantado de conocerte'
+  },
+  en: {
+    badge: 'Available for projects',
+    role: 'Business & Marketing Development · AI Systems',
+    bio: 'I build AI-powered market intelligence so businesses find new customers — without running ads or inflating the budget. A decade operating across 5+ sectors.',
+    m1k: 'Based in', m1v: 'México · Remote global',
+    m2k: 'Languages',
+    m3k: 'Focus', m3v: 'Marketing · AI · Operations',
+    m4k: 'Response', m4v: 'Within 24 hours',
+    wa: 'Message me · +52 729 567 6764',
+    li: 'arturo-gonzalezgarcia-marketing',
+    mailt: 'Email',
+    sitet: 'View portfolio', sites: 'Work, AI agents & case studies',
+    foot: 'Glad to meet you'
+  }
+};
+function setLang(lang){
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (I18N[lang][k] !== undefined) el.textContent = I18N[lang][k];
+  });
+  document.querySelectorAll('.langtoggle button').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  try { localStorage.setItem('contact-lang', lang); } catch(e){}
+}
+// default Spanish, but remember choice
+const saved = (function(){ try { return localStorage.getItem('contact-lang'); } catch(e){ return null; } })();
+setLang(saved === 'en' ? 'en' : 'es');
+
+// reveal
+requestAnimationFrame(() => document.querySelector('.card').classList.add('vis'));
+</script>
+</body>
+</html>
