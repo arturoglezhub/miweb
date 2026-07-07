@@ -134,6 +134,77 @@ footer { border-top: 1.5px solid var(--ink); padding: 2.4rem 0; }
   .toplinks a:not(.home) { display: none; }
   .postbody p, .postbody li { font-size: 1.05rem; }
 }
+/* ===== NUEVO: Estilos para Lightbox ===== */
+
+/* Asegurar que las imágenes del blog indiquen que son clickeables */
+.postbody img {
+  cursor: zoom-in;
+}
+
+/* El fondo oscuro que cubre toda la pantalla */
+.lightbox {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Fijo en la pantalla */
+  z-index: 2000; /* Por encima de todo, incluso de la topbar */
+  padding-top: 50px; /* Espacio superior */
+  left: 0;
+  top: 0;
+  width: 100%; /* Ancho completo */
+  height: 100%; /* Alto completo */
+  overflow: auto; /* Habilita scroll si la imagen es muy grande */
+  background-color: rgba(29, 28, 23, 0.95); /* El color --ink con mucha opacidad */
+  backdrop-filter: blur(8px); /* Efecto blur de fondo opcional */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Clase para mostrar el lightbox con JavaScript */
+.lightbox.active {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centrado vertical si no hay scroll */
+  opacity: 1;
+  padding: 40px; /* Margen de seguridad alrededor */
+}
+
+/* La imagen dentro del lightbox */
+.lightbox-content {
+  display: block;
+  max-width: 100%; /* No se sale del ancho de pantalla */
+  max-height: 100%; /* No se sale del alto de pantalla */
+  width: auto; /* Mantiene proporción original */
+  height: auto; /* Mantiene proporción original */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  border: 1.5px solid var(--paper); /* Borde estilo tu diseño */
+  
+  /* Animación de apertura (zoom in) */
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+  cursor: zoom-out; /* Cursor para cerrar */
+}
+
+/* Cuando el lightbox está activo, la imagen se escala a su tamaño */
+.lightbox.active .lightbox-content {
+  transform: scale(1);
+}
+
+/* El botón de cierre "X" */
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: var(--paper);
+  font-size: 40px;
+  font-weight: 300; /* Newsreader style light */
+  font-family: 'Newsreader', serif;
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 2001;
+}
+
+.lightbox-close:hover {
+  color: var(--red);
+}
 </style>
 </head>
 <body>
@@ -641,6 +712,71 @@ if (location.hash && /^#post-00\d$/.test(location.hash)) {
   const el = document.getElementById(location.hash.slice(1));
   if (el) openPost(location.hash.slice(1));
 }
+// ... si tienes otras funciones JavaScript aquí ...
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+
+    // 1. Abrir Lightbox
+    // Buscamos todas las imágenes dentro de los post body
+    const images = document.querySelectorAll('.postbody img');
+    
+    images.forEach(img => {
+      img.addEventListener('click', (e) => {
+        // Evitamos comportamiento por defecto si lo hubiera
+        e.preventDefault();
+        
+        // Asignamos el src de la imagen clickeada a la imagen grande
+        lightboxImg.src = img.src;
+        // Asignamos el alt para accesibilidad
+        lightboxImg.alt = img.alt;
+        
+        // Mostramos el lightbox agregando la clase active
+        lightbox.classList.add('active');
+        
+        // Opcional: Deshabilitar scroll de la página de fondo
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    // 2. Función para cerrar
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      // Rehabilitar scroll de fondo
+      document.body.style.overflow = '';
+      // Limpiar src después de la transición para que no "parpadee" la imagen anterior la próxima vez
+      setTimeout(() => {
+        lightboxImg.src = "";
+      }, 300);
+    };
+
+    // 3. Cerrar al click en la "X"
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    // 4. Cerrar al click fuera de la imagen (en el fondo oscuro)
+    lightbox.addEventListener('click', (e) => {
+      // Si el click fue en el fondo (lightbox) y no en la imagen (lightboxImg)
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    // 5. Cerrar también con la tecla ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === "Escape" && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+  });
 </script>
+<!-- ... final de tu código existente ... -->
+
+<!-- NUEVO: Contenedor Lightbox para imagen ampliada -->
+<div id="lightbox" class="lightbox">
+  <span class="lightbox-close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img" src="" alt="Imagen ampliada">
+</div>
 </body>
 </html>
